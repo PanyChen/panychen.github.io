@@ -8,9 +8,7 @@
   const nextLabel = document.querySelector('#next-label');
   const pageNumber = document.querySelector('#current-number');
   const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const cvDialog = document.querySelector('#cv-dialog');
   let currentPage = 0;
-  let cvAvailable = false;
   let touchStart = null;
 
   const waterScene = document.querySelector('.water-scene');
@@ -162,7 +160,7 @@
   window.addEventListener('popstate', () => goToPage(pageFromHash(), { updateHistory: false }));
   window.addEventListener('hashchange', () => goToPage(pageFromHash(), { updateHistory: false }));
   document.addEventListener('keydown', event => {
-    if (cvDialog.open || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey || event.target.closest('input, textarea, select, [contenteditable="true"]')) return;
+    if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey || event.target.closest('input, textarea, select, [contenteditable="true"]')) return;
     if (event.key === 'ArrowRight') { event.preventDefault(); goToPage(Math.min(currentPage + 1, 4)); }
     if (event.key === 'ArrowLeft') { event.preventDefault(); goToPage(Math.max(currentPage - 1, 0)); }
   });
@@ -182,21 +180,6 @@
     }
   }, { passive: true });
   document.querySelector('main').addEventListener('touchcancel', () => { touchStart = null; }, { passive: true });
-
-  document.querySelectorAll('.cv-link').forEach(button => {
-    button.addEventListener('click', () => {
-      if (cvAvailable) window.open('assets/cv.pdf', '_blank', 'noopener,noreferrer');
-      else cvDialog.showModal();
-    });
-  });
-  cvDialog.querySelector('.dialog-close').addEventListener('click', () => cvDialog.close());
-  cvDialog.addEventListener('click', event => {
-    const bounds = cvDialog.getBoundingClientRect();
-    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) cvDialog.close();
-  });
-  fetch('assets/cv.pdf', { method: 'HEAD', cache: 'no-store' })
-    .then(response => { cvAvailable = response.ok && (response.headers.get('content-type') || '').includes('application/pdf'); })
-    .catch(() => { cvAvailable = false; });
 
   const photo = new Image();
   photo.addEventListener('load', () => {

@@ -8,7 +8,6 @@ This repository is ready for GitHub Pages. Publish the default branch from the r
 
 - Edit `index.html`, `styles.css` or `app.js`, then commit the changes. GitHub Pages publishes commits to the configured branch automatically.
 - Replace `assets/profile.jpg` to update the portrait. Change the `v` value in the image URL in `app.js` to ensure browsers fetch the replacement.
-- Replace `assets/cv.pdf` to update the downloadable CV while keeping its link stable.
 
 ## Local preview
 

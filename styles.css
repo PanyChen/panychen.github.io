@@ -154,12 +154,6 @@ main { min-height: 0; }
 .page.is-entering-back { transform-origin: right center; }
 .skip-link { position: fixed; left: 20px; top: -80px; z-index: 50; padding: 15px; background: white; }
 .skip-link:focus { top: 15px; }
-dialog { max-width: 530px; width: calc(100% - 36px); max-height: calc(100dvh - 30px); background: var(--paper); color: var(--ink); border: 1px solid #c2cbb7; border-radius: 5px; padding: 43px; box-shadow: 0 20px 100px #19332a40; }
-dialog::backdrop { background: #172d26a8; backdrop-filter: blur(3px); }
-dialog h2 { font: 400 39px/1.12 var(--serif); letter-spacing: -.035em; }
-dialog > p { font-size: 16px; line-height: 1.6; margin-top: 22px; }
-dialog .button { margin-top: 24px; }
-.dialog-close { position: absolute; top: 9px; right: 13px; font-size: 25px; border: 0; background: none; padding: 4px 9px; }
 .noscript-message { position: fixed; bottom: 80px; left: 24px; right: 24px; background: var(--paper); padding: 20px; font-size: 16px; line-height: 1.6; }
 @keyframes turn-page { from { opacity: 0; transform: perspective(1400px) rotateY(-3deg) translateX(6px); } to { opacity: 1; transform: none; } }
 @keyframes reveal-result { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
@@ -249,7 +243,7 @@ dialog .button { margin-top: 24px; }
   .contact-name { font-size: 19px; margin-bottom: 23px; }
   .contact-copy h2 { font-size: clamp(37px, 6.2dvh, 53px); }
   .contact-intro { font-size: 16px; line-height: 1.55; margin-top: 23px; }
-  .contact-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 26px; }
+  .contact-actions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 26px; }
   .contact-actions .button { gap: 6px; padding: 8px; justify-content: center; }
   .contact-actions .button svg { width: 18px; height: 18px; }
   .page-footer { gap: 8px; }
@@ -260,8 +254,6 @@ dialog .button { margin-top: 24px; }
   .nav-button svg { width: 18px; height: 18px; }
   .footer-right { gap: 12px; }
   .page-count { gap: 5px; font-size: 13px; }
-  dialog { padding: 35px 25px; }
-  dialog h2 { font-size: 34px; }
 }
 @media (max-width: 370px) {
   .site-shell { padding-left: 18px; padding-right: 18px; }

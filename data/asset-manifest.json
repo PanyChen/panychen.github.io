@@ -1,0 +1,123 @@
+{
+  "path_base": "site root",
+  "hero_fit": "cover",
+  "assets": [
+    {
+      "id": "opening-energy",
+      "path": "assets/opening-energy.jpg",
+      "kind": "Optical photograph",
+      "alt": "Water droplets on glass, the original Save energy opening photograph",
+      "credit": "CHUTTERSNAP via Unsplash",
+      "source_url": "https://unsplash.com/photos/water-droplets-on-glass-surface-Mxii7n2rdvY",
+      "object_position": [
+        50.0,
+        50.0
+      ],
+      "width": 665,
+      "height": 1000,
+      "sha256": "fe7fbd6a87b989305d08d5da89eb43f6af35c21adbb960bef7cbf19ff73bedc6",
+      "note": "Opening source file unchanged from the approved screenshot"
+    },
+    {
+      "id": "opening-carbon",
+      "path": "assets/opening-carbon.jpg",
+      "kind": "Optical photograph",
+      "alt": "Grey asphalt texture, the original Cut carbon opening photograph",
+      "credit": "Bernard Hermant via Unsplash",
+      "source_url": "https://unsplash.com/photos/close-up-of-grey-asphalt-texture-qi-H70ga93s",
+      "object_position": [
+        50.0,
+        50.0
+      ],
+      "width": 900,
+      "height": 600,
+      "sha256": "2839fedc8b73fdb072400bb8091c180d9e316bfc638ebfa89b35836c231a4b5f",
+      "note": "Opening source file unchanged from the approved screenshot"
+    },
+    {
+      "id": "opening-water",
+      "path": "assets/opening-water.jpg",
+      "kind": "Optical photograph",
+      "alt": "Blue ice texture, the original clean water opening photograph",
+      "credit": "Yunfan Li via Unsplash",
+      "source_url": "https://unsplash.com/photos/close-up-of-textured-blue-ice-with-white-streaks-BlZAz2WROCg",
+      "object_position": [
+        50.0,
+        50.0
+      ],
+      "width": 900,
+      "height": 600,
+      "sha256": "ceb90a85a297117a385b5cd9ba67d285eb0375da345e885ec0b0518ce3347fda",
+      "note": "Opening source file unchanged from the approved screenshot"
+    },
+    {
+      "id": "selected-energy",
+      "path": "assets/selected-energy-leaf.jpg",
+      "kind": "Optical reference photograph",
+      "alt": "Water droplets beading on a green leaf",
+      "credit": "Andrei Castanha via Unsplash",
+      "source_url": "https://unsplash.com/photos/close-up-of-water-droplets-on-a-green-leaf-_xKLNDJJ64Y",
+      "object_position": [
+        45.0,
+        43.0
+      ],
+      "width": 2000,
+      "height": 3066,
+      "sha256": "19fccc1f27553bb7f37a1db924d0477339324aab307cbd5b4842a05937b7143e",
+      "note": "Natural leaf surface, used as an illustrative optical reference for water repellency; not an artificial pavement coating or Pengxu Chen’s experimental result. Free commercial and non-commercial use under the Unsplash License; no separate permission required. Photographer credited voluntarily.",
+      "license": "Unsplash License",
+      "license_url": "https://unsplash.com/license"
+    },
+    {
+      "id": "selected-carbon",
+      "path": "assets/selected-carbon.jpg",
+      "kind": "Environmental scanning electron micrograph (ESEM, LFD mode)",
+      "alt": "Rough limestone on the left meeting smooth bitumen on the right at a near-vertical interface",
+      "credit": "Lu Zhou, Gordon Airey, Yuqing Zhang and Chonghui Wang (2024), Figure 6, right-hand LFD micrograph; CC BY 4.0",
+      "source_url": "https://doi.org/10.1080/14680629.2024.2426012",
+      "object_position": [
+        25.0,
+        50.0
+      ],
+      "width": 812,
+      "height": 539,
+      "sha256": "fb352aa6862cde88adaa3f3034b4dc3062b8eac599aca24026545ffc7b7f4b25",
+      "note": "Cropped from Figure 6, right-hand image, PDF page 11, in Multiscale characterisation on the adhesion and selective adsorption at bitumen–mineral interface. White margins, left-hand panel and instrument/scale strip removed; no retouching or recolouring. Illustrative published research by Zhou et al.; not Pengxu Chen’s experimental result. Preserve the limestone–bitumen boundary when using object-fit: cover. Cropped image has no scale bar; do not use it for dimensional measurements.",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "original_pdf_url": "https://publications.aston.ac.uk/id/eprint/46973/1/Multiscale_characterisation_on_the_adhesion_and_selective_adsorption_at_bitumen_mineral_interface.pdf#page=11"
+    },
+    {
+      "id": "selected-water",
+      "path": "assets/selected-water.png",
+      "kind": "Molecular visualisation",
+      "alt": "Pengxu Chen supplied molecular illustration for freeze desalination",
+      "credit": "Supplied by Pengxu Chen",
+      "source_url": "",
+      "object_position": [
+        52.0,
+        50.0
+      ],
+      "width": 2048,
+      "height": 1152,
+      "sha256": "398c751d5f2bf696599111816cbe3e3db03a5cff4cae1cbc84e406d309654502",
+      "note": "Unchanged copy of freezeDesalination.png. Do not recolour or assign ion identities without the author legend."
+    },
+    {
+      "id": "profile",
+      "path": "assets/profile.jpg",
+      "kind": "Profile portrait",
+      "alt": "Pengxu Vincent Chen",
+      "credit": "Research group profile for Pengxu Chen",
+      "source_url": "https://multiscaleflowx.github.io/team/chen-pengxu/",
+      "object_position": [
+        50.0,
+        40.0
+      ],
+      "width": 1133,
+      "height": 1511,
+      "sha256": "86999bd5fcd625784d1a506842d9b093640575ed7e77cce36e271a83727fc325",
+      "note": "Use this actual portrait. No generated person or alteration of appearance."
+    }
+  ]
+}

@@ -1,69 +1,79 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f3eb">
-  <meta name="description" content="Meet Pengxu (Vincent) Chen, PhD through three interactive scenes: problem-solving, repeatable workflows, and clear communication.">
-  <title>Pengxu (Vincent) Chen, PhD — See how I work</title>
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20261024">
-  <script src="app.js?v=20261024" defer></script>
+  <meta name="theme-color" content="#F1EEE7">
+  <title>Pengxu (Vincent) Chen — Interfaces</title>
+  <meta name="description" content="I study where materials meet, to help save energy, cut carbon and make clean water.">
+  <meta property="og:title" content="Pengxu (Vincent) Chen — Material interfaces for a sustainable future.">
+  <meta property="og:description" content="I study where materials meet, to help save energy, cut carbon and make clean water.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/source-serif-4-400.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/source-sans-3-400.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="work-interactions.css">
+  <script type="module" src="app.js"></script>
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to the current page</a>
-  <svg class="svg-definitions" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+<body data-view="home">
+  <div class="home-backdrop" aria-hidden="true"><div class="backdrop-layer" data-backdrop="energy" style="background-image:url('assets/opening-energy.jpg')"></div><div class="backdrop-layer" data-backdrop="carbon" style="background-image:url('assets/opening-carbon.jpg')"></div><div class="backdrop-layer" data-backdrop="water" style="background-image:url('assets/opening-water.jpg')"></div></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="section-rail" aria-label="Sections" data-expanded="false">
+    <button type="button" id="menu-toggle" class="menu-toggle" aria-controls="section-links" aria-expanded="false" aria-label="Show section menu"><span class="menu-stroke"></span><span class="menu-stroke"></span><span class="menu-caption">Menu</span></button>
+    <ul id="section-links"><li><a href="#home" data-view-link="home" aria-controls="view-home" aria-current="page"><span class="rail-line" aria-hidden="true"></span><span class="rail-label">Home</span></a></li><li><a href="#how-i-work" data-view-link="how-i-work" aria-controls="view-how-i-work" ><span class="rail-line" aria-hidden="true"></span><span class="rail-label">How I work</span></a></li><li><a href="#education" data-view-link="education" aria-controls="view-education" ><span class="rail-line" aria-hidden="true"></span><span class="rail-label">Education</span></a></li><li><a href="#recognition" data-view-link="recognition" aria-controls="view-recognition" ><span class="rail-line" aria-hidden="true"></span><span class="rail-label">Selected recognition</span></a></li><li><a href="#outputs" data-view-link="outputs" aria-controls="view-outputs" ><span class="rail-line" aria-hidden="true"></span><span class="rail-label">Research outputs</span></a></li></ul>
+  </nav>
+  <header class="site-header shell">
+    <a class="identity" href="#home" data-view-link="home" aria-label="Pengxu (Vincent) Chen, home">
+      <img src="assets/profile.jpg" width="1133" height="1511" alt="Pengxu Vincent Chen" style="object-position:50% 40%" class="portrait" fetchpriority="high">
+      <span><span class="name">Pengxu (Vincent) Chen</span><span class="role">Materials scientist</span></span>
+    </a>
+    <a class="contact-link" href="mailto:chenpengxu321@gmail.com">Get in touch <span aria-hidden="true">↗</span></a>
+  </header>
+  <main id="main" class="shell">
+    <section id="view-home" class="view home-view" data-view="home" data-title="Home" aria-labelledby="main-heading">
+      <div class="hero"><h1 id="main-heading" tabindex="-1">Material <em>interfaces</em> for a sustainable future.</h1><p>The thin boundary where materials meet.</p></div>
+      <section aria-labelledby="goals-heading">
+        <h2 id="goals-heading" class="sr-only">Environmental research goals</h2>
+        <div class="goal-gallery"><button type="button" class="goal-card" id="goal-energy" data-goal="energy" aria-pressed="false" aria-controls="research" aria-describedby="state-energy">
+            <img src="assets/opening-energy.jpg" width="665" height="1000" style="object-position:50% 50%" class="goal-image goal-image--opening" alt="" aria-hidden="true" fetchpriority="high">
+            <img class="goal-image goal-image--selected" data-src="assets/selected-energy-leaf.jpg" width="2000" height="3066" alt="" aria-hidden="true" style="object-position:45% 43%">
+            <span class="goal-copy"><span class="goal-title">Save energy.</span><span class="goal-subtitle">Repel water and control freezing</span></span>
+          </button><button type="button" class="goal-card" id="goal-carbon" data-goal="carbon" aria-pressed="false" aria-controls="research" aria-describedby="state-carbon">
+            <img src="assets/opening-carbon.jpg" width="900" height="600" style="object-position:50% 50%" class="goal-image goal-image--opening" alt="" aria-hidden="true" fetchpriority="high">
+            <img class="goal-image goal-image--selected" data-src="assets/selected-carbon.jpg" width="812" height="539" alt="" aria-hidden="true" style="object-position:25% 50%">
+            <span class="goal-copy"><span class="goal-title">Cut carbon.</span><span class="goal-subtitle">Build longer-lasting pavement</span></span>
+          </button><button type="button" class="goal-card" id="goal-water" data-goal="water" aria-pressed="false" aria-controls="research" aria-describedby="state-water">
+            <img src="assets/opening-water.jpg" width="900" height="600" style="object-position:50% 50%" class="goal-image goal-image--opening" alt="" aria-hidden="true" fetchpriority="high">
+            <img class="goal-image goal-image--selected" data-src="assets/selected-water.png" width="2048" height="1152" alt="" aria-hidden="true" style="object-position:52% 50%">
+            <span class="goal-copy"><span class="goal-title">Make clean water.</span><span class="goal-subtitle">Control ice for desalination</span></span>
+          </button></div>
+        <span class="sr-only" id="state-energy">Water droplets on glass, the original Save energy opening photograph</span><span class="sr-only" id="state-carbon">Grey asphalt texture, the original Cut carbon opening photograph</span><span class="sr-only" id="state-water">Blue ice texture, the original clean water opening photograph</span>
+        <p id="selection-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+        <p class="load-error" id="image-error" role="status" hidden></p>
+        <noscript><p class="load-error">Enable JavaScript to explore the research and section menu. You can <a href="mailto:chenpengxu321@gmail.com">contact Pengxu by email</a>.</p></noscript>
+      </section>
+      <section id="research" class="research" aria-labelledby="research-heading" hidden>
+        <div class="research-heading"><h2 id="research-heading"></h2><button type="button" id="clear-selection" class="quiet-button">Clear selection <span aria-hidden="true">×</span></button></div>
+        <p id="goal-intro" class="goal-intro"></p>
+        <nav id="story-nav" class="story-nav" aria-label="Research stories"></nav>
+        <article id="story" class="story" aria-labelledby="story-title"></article>
+      </section>
+      <footer class="contact view-contact" aria-labelledby="contact-home"><div><h2 id="contact-home">Let's talk.</h2><p><a href="mailto:chenpengxu321@gmail.com">chenpengxu321@gmail.com</a></p></div><div class="contact-links"><a href="https://uk.linkedin.com/in/pengxu-vincent-chen-857082221">LinkedIn <span aria-hidden="true">↗</span></a><a href="https://scholar.google.com/citations?user=uM3Ms-MAAAAJ&amp;hl=en">Google Scholar <span aria-hidden="true">↗</span></a></div></footer>
+      <details class="credits"><summary>Image credits &amp; sources</summary><ul class="credit-grid"><li><p><strong>Energy · Opening</strong> — Optical photograph</p><p><a href="https://unsplash.com/photos/water-droplets-on-glass-surface-Mxii7n2rdvY">CHUTTERSNAP via Unsplash</a></p><p>Opening source file unchanged from the approved screenshot</p></li><li><p><strong>Carbon · Opening</strong> — Optical photograph</p><p><a href="https://unsplash.com/photos/close-up-of-grey-asphalt-texture-qi-H70ga93s">Bernard Hermant via Unsplash</a></p><p>Opening source file unchanged from the approved screenshot</p></li><li><p><strong>Water · Opening</strong> — Optical photograph</p><p><a href="https://unsplash.com/photos/close-up-of-textured-blue-ice-with-white-streaks-BlZAz2WROCg">Yunfan Li via Unsplash</a></p><p>Opening source file unchanged from the approved screenshot</p></li><li><p><strong>Energy · Selected</strong> — Optical reference photograph</p><p><a href="https://unsplash.com/photos/close-up-of-water-droplets-on-a-green-leaf-_xKLNDJJ64Y">Andrei Castanha via Unsplash</a> · <a href="https://unsplash.com/license">Unsplash License</a></p><p>Natural leaf surface, used as an illustrative optical reference for water repellency; not an artificial pavement coating or Pengxu Chen’s experimental result. Free commercial and non-commercial use under the Unsplash License; no separate permission required. Photographer credited voluntarily.</p></li><li><p><strong>Carbon · Selected</strong> — Environmental scanning electron micrograph (ESEM, LFD mode)</p><p><a href="https://doi.org/10.1080/14680629.2024.2426012">Lu Zhou, Gordon Airey, Yuqing Zhang and Chonghui Wang (2024), Figure 6, right-hand LFD micrograph; CC BY 4.0</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · Figure 6 (right), cropped.</p><p>Cropped from Figure 6, right-hand image, PDF page 11, in Multiscale characterisation on the adhesion and selective adsorption at bitumen–mineral interface. White margins, left-hand panel and instrument/scale strip removed; no retouching or recolouring. Illustrative published research by Zhou et al.; not Pengxu Chen’s experimental result. Preserve the limestone–bitumen boundary when using object-fit: cover. Cropped image has no scale bar; do not use it for dimensional measurements.</p></li><li><p><strong>Water · Selected</strong> — Molecular visualisation</p><p>Supplied by Pengxu Chen</p><p>Unchanged copy of freezeDesalination.png. Do not recolour or assign ion identities without the author legend.</p></li><li><p><strong>Profile portrait</strong> — Profile portrait</p><p><a href="https://multiscaleflowx.github.io/team/chen-pengxu/">Research group profile for Pengxu Chen</a></p><p>Use this actual portrait. No generated person or alteration of appearance.</p></li></ul></details>
+    </section>
+    <section id="view-how-i-work" class="view sub-view work-view" data-view="how-i-work" data-title="How I work" aria-labelledby="work-heading" hidden inert>
+      <div class="view-content"><div class="work-heading-row"><div class="view-heading"><h1 id="work-heading" tabindex="-1">How I work</h1><p class="section-intro">My research connects surface design, adhesion and ice nucleation. I combine molecular simulation, laboratory experiments and scientific computing to understand interfaces and address practical environmental questions.</p></div><aside class="work-skills" aria-labelledby="skills-heading"><h2 id="skills-heading">Tools &amp; expertise</h2><ul><li>Molecular dynamics</li><li>Interfacial phenomena</li><li>Multiscale modelling</li><li>Experimental validation</li><li>MATLAB and C++</li><li>HPC and workflow automation</li><li>Scientific visualisation</li><li>Python</li><li>Machine learning</li></ul></aside></div>
+      <svg class="svg-definitions" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <symbol id="arrow-right" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
       <symbol id="arrow-up" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></symbol>
-      <symbol id="tourist" viewBox="0 0 80 135"><circle cx="40" cy="21" r="12"/><path d="M40 34v48M40 45 19 66M40 45l21 21M40 82l-20 38M40 82l20 38"/><path d="M26 12h28M31 12l3-8h13l3 8"/></symbol>
+<symbol id="tourist-camera" viewBox="0 0 80 135"><circle cx="40" cy="24" r="11"/><path d="M22 16h36M29 16l4-9h14l4 9M30 38l-6 40h31l-6-40M29 44 14 65l17 7M50 45l15 17-15 8M32 79l-4 39M48 79l9 39M23 119h12M53 119h12M30 40l22 26"/><rect x="31" y="57" width="21" height="15" rx="2"/><circle cx="42" cy="64" r="4"/></symbol>
+<symbol id="tourist-backpack" viewBox="0 0 80 135"><circle cx="35" cy="20" r="11"/><path d="M25 16q2-15 18-6l5 8M24 11l-7 13M30 33l-5 42 23 2-3-43M27 43 12 59l15 11M45 43l12 20M29 78l-8 43M43 78l12 35M15 122h15M51 116h14"/><rect x="47" y="37" width="16" height="36" rx="6"/><path d="M51 42h8M23 52l-8-4-6 16 10 5"/></symbol>
+<symbol id="tourist-cap" viewBox="0 0 80 135"><circle cx="43" cy="26" r="10"/><path d="M32 21q1-16 20-8l3 9H29M36 39l-8 35 27 3-4-37M31 46 18 72M52 46l14 14M66 55l-5 66M32 78l-8 37M49 79l7 40M18 118h14M52 122h13M35 41l15 29"/><rect x="24" y="63" width="15" height="18" rx="3"/><path d="M37 26h4M46 26h4"/></symbol>
     </defs>
   </svg>
-
-  <div class="site-shell">
-    <header class="site-header">
-      <a class="identity" href="#cover" aria-label="Pengxu Chen, PhD, return to cover"><span class="identity-name">Pengxu Chen, PhD</span></a>
-      <div class="header-links">
-        <a class="text-link" href="#contact">Contact <svg aria-hidden="true"><use href="#arrow-up"/></svg></a>
-      </div>
-    </header>
-
-    <main id="main" tabindex="-1">
-      <section class="page cover-page" id="cover" aria-labelledby="cover-title" data-page="0">
-        <div class="cover-copy">
-          <h1 id="cover-title" tabindex="-1">Pengxu <span class="nickname">(Vincent)</span> Chen, PhD</h1>
-          <div class="cover-statements">
-            <p>I solve <em>problems.</em></p>
-            <p>I make work <em>easier.</em></p>
-            <p>I help others<br><em>understand.</em></p>
-          </div>
-          <div class="cover-action">
-            <button class="button button-dark" type="button" data-go="1">Turn the page <svg aria-hidden="true"><use href="#arrow-right"/></svg></button>
-          </div>
-        </div>
-        <figure class="portrait-card">
-          <div class="portrait-field">
-            <div class="portrait-placeholder" aria-label="Profile photo placeholder">
-              <span class="portrait-initials" aria-hidden="true">PC<span>.</span></span>
-              <span class="portrait-orbit orbit-one" aria-hidden="true"></span>
-              <span class="portrait-orbit orbit-two" aria-hidden="true"></span>
-              <span class="photo-label">Profile photo to follow</span>
-            </div>
-            <img id="profile-photo" alt="Pengxu (Vincent) Chen, PhD" hidden>
-          </div>
-        </figure>
-      </section>
-
-      <section class="page scene-page" id="problems" aria-labelledby="problems-title" data-page="1" hidden inert>
-        <div class="scene-copy">
-          <h2 id="problems-title" tabindex="-1">I solve<br><em>problems.</em></h2>
-          <p class="scene-question">Does shaking help water freeze?</p>
-          <div class="takeaway" id="ice-result" aria-live="polite" hidden>
-            <h3>It depends on how you shake it.</h3>
-            <p>I break down the question, compare possible explanations and check the evidence.</p>
-          </div>
-        </div>
-        <div class="scene-visual water-scene">
+      <div class="work-grid"><article class="work-principle" aria-labelledby="principle-0"><h2 id="principle-0">I solve problems.</h2><p class="scene-question" id="question-0">Does shaking help water freeze?</p><div class="scene-visual water-scene">
           <button class="glass-target" id="glass-button" type="button" aria-label="Tap the glass to explore how conditions affect ice">
             <svg class="glass-illustration" viewBox="0 0 440 420" aria-hidden="true">
               <defs>
@@ -97,41 +107,20 @@
               </g>
             </svg>
           </button>
-          <div class="visual-controls"><button class="small-button" id="ice-pause" type="button" hidden>Pause animation</button></div>
-        </div>
-      </section>
-
-      <section class="page scene-page" id="workflows" aria-labelledby="workflows-title" data-page="2" hidden inert>
-        <div class="scene-copy">
-          <h2 id="workflows-title" tabindex="-1">I make work<br><em>easier.</em></h2>
-          <div class="takeaway" id="workflow-result" aria-live="polite" hidden>
-            <p>I build repeatable workflows so repetitive tasks can run consistently, with checks on the output.</p>
-          </div>
-        </div>
-        <div class="scene-visual notes-scene">
+          <div class="visual-controls"><span id="glass-prompt" class="interaction-prompt">Tap the glass to explore</span><button class="small-button" id="ice-pause" type="button" hidden>Pause animation</button></div>
+        </div><div class="takeaway" id="ice-result" role="status" hidden><p class="interaction-answer">It depends on how you shake it.</p><p class="principle-description">I connect molecular behaviour to mechanisms and measurable material response through simulation, theory and experimental validation.</p></div></article><article class="work-principle" aria-labelledby="principle-1"><h2 id="principle-1">I make work easier.</h2><p class="scene-question" id="question-1">How do scattered tasks become a repeatable workflow?</p><div class="scene-visual notes-scene">
           <div class="memo-board" id="memo-board" role="img" aria-label="Seven scattered notes: data, files, script, tasks, checks, notes, and results.">
-            <div class="workflow-rail" aria-hidden="true"><span>Prepare</span><span>Run</span><span>Check</span><span>Summarise</span></div>
-            <span class="memo-note note-data"><i aria-hidden="true"></i>data</span>
+            <div class="workflow-rail" aria-hidden="true"><span class="workflow-stage"><span class="workflow-label">Prepare</span><span class="workflow-arrow" aria-hidden="true">→</span></span><span class="workflow-stage"><span class="workflow-label">Run</span><span class="workflow-arrow" aria-hidden="true">→</span></span><span class="workflow-stage"><span class="workflow-label">Check</span><span class="workflow-arrow" aria-hidden="true">→</span></span><span class="workflow-stage"><span class="workflow-label">Analyse</span><span class="workflow-arrow" aria-hidden="true">→</span></span><span class="workflow-stage"><span class="workflow-label">Summarise</span></span></div>
+            <span class="memo-note note-tasks"><i aria-hidden="true"></i>tasks</span>
             <span class="memo-note note-files"><i aria-hidden="true"></i>files</span>
             <span class="memo-note note-script"><i aria-hidden="true"></i>script</span>
-            <span class="memo-note note-tasks"><i aria-hidden="true"></i>tasks</span>
+            <span class="memo-note note-data"><i aria-hidden="true"></i>data</span>
             <span class="memo-note note-checks"><i aria-hidden="true"></i>checks</span>
-            <span class="memo-note note-notes"><i aria-hidden="true"></i>notes</span>
             <span class="memo-note note-results"><i aria-hidden="true"></i>results</span>
+            <span class="memo-note note-notes"><i aria-hidden="true"></i>notes</span>
           </div>
           <div class="visual-controls"><button class="button button-dark" id="organise-button" type="button">Organise <svg aria-hidden="true"><use href="#arrow-right"/></svg></button><button class="small-button" id="workflow-replay" type="button" hidden>Replay <span aria-hidden="true">↺</span></button></div>
-        </div>
-      </section>
-
-      <section class="page scene-page" id="communication" aria-labelledby="communication-title" data-page="3" hidden inert>
-        <div class="scene-copy">
-          <h2 id="communication-title" tabindex="-1">I help others<br><em>understand.</em></h2>
-          <div class="takeaway" id="communication-result" aria-live="polite" hidden>
-            <p>Residence time is the average time something stays in a place before leaving.</p>
-            <p class="result-emphasis">I turn complex concepts into visuals and explanations that others can understand.</p>
-          </div>
-        </div>
-        <div class="scene-visual explanation-scene">
+        </div><div class="takeaway" id="workflow-result" role="status" hidden><p class="interaction-answer">A clear sequence makes repeated work easier.</p><p class="principle-description">I build reusable simulation workflows and analysis tools, and automate large simulation campaigns on national computing systems.</p></div></article><article class="work-principle" aria-labelledby="principle-2"><h2 id="principle-2">I help others understand.</h2><p class="scene-question" id="question-2">How can a complex idea become easy to understand?</p><div class="scene-visual explanation-scene">
           <div class="blackboard" id="blackboard">
             <div class="equation-view" id="equation-view">
               <span class="chalk-label">Molecular residence time</span>
@@ -141,45 +130,53 @@
             </div>
             <div class="tourist-view" id="tourist-view" hidden>
               <span class="chalk-label">A tourist’s average stay</span>
-              <div class="tourist-group" role="img" aria-label="Illustrative visits by three tourists for 3, 5, and 7 minutes, not research measurements.">
-                <div class="tourist-person"><svg aria-hidden="true"><use href="#tourist"/></svg><span><strong>3</strong> minutes</span></div>
-                <div class="tourist-person"><svg aria-hidden="true"><use href="#tourist"/></svg><span><strong>5</strong> minutes</span></div>
-                <div class="tourist-person"><svg aria-hidden="true"><use href="#tourist"/></svg><span><strong>7</strong> minutes</span></div>
+              <div class="tourist-group" role="img" aria-label="Illustrative visits by three different tourists, with a camera, a backpack and a cap, for 3, 5, and 7 minutes, not research measurements.">
+                <div class="tourist-person"><svg aria-hidden="true"><use href="#tourist-camera"/></svg><span><strong>3</strong> minutes</span></div>
+                <div class="tourist-person"><svg aria-hidden="true"><use href="#tourist-backpack"/></svg><span><strong>5</strong> minutes</span></div>
+                <div class="tourist-person"><svg aria-hidden="true"><use href="#tourist-cap"/></svg><span><strong>7</strong> minutes</span></div>
               </div>
               <p class="visit-average">Average visit: <strong>5 minutes</strong></p>
             </div>
             <div class="chalk-line" aria-hidden="true"></div>
           </div>
           <div class="board-tray"><button class="eraser-button" id="eraser-button" type="button" aria-label="Tap the eraser to replace the equation with a tourist analogy"><span class="eraser-shape" aria-hidden="true"></span><span>Tap the eraser</span></button><button class="small-button" id="equation-reset" type="button" hidden>Show the equation</button></div>
-        </div>
-      </section>
-
-      <section class="page contact-page" id="contact" aria-labelledby="contact-title" data-page="4" hidden inert>
-        <div class="contact-copy">
-          <p class="contact-name">Pengxu (Vincent) Chen, PhD</p>
-          <h2 id="contact-title" tabindex="-1">Let’s put these<br>ideas to <em>work.</em></h2>
-          <p class="contact-intro">I want to bring analytical problem-solving, repeatable workflows and clear communication to my next role.</p>
-          <div class="contact-actions">
-            <a class="button button-dark" href="mailto:chenpengxu321@gmail.com">Email <svg aria-hidden="true"><use href="#arrow-up"/></svg></a>
-            <a class="text-link" href="https://linkedin.com/in/pengxu-vincent-chen-857082221" target="_blank" rel="noopener noreferrer">LinkedIn <svg aria-hidden="true"><use href="#arrow-up"/></svg></a>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="page-footer">
-      <button class="nav-button back-button" id="back-button" type="button" disabled><svg aria-hidden="true"><use href="#arrow-right"/></svg> Back</button>
-      <nav class="page-progress" aria-label="Pages">
-        <button type="button" data-go="0" aria-label="Page 1: Cover" aria-current="page"><span></span></button>
-        <button type="button" data-go="1" aria-label="Page 2: I solve problems"><span></span></button>
-        <button type="button" data-go="2" aria-label="Page 3: I make work easier"><span></span></button>
-        <button type="button" data-go="3" aria-label="Page 4: I help others understand"><span></span></button>
-        <button type="button" data-go="4" aria-label="Page 5: Contact"><span></span></button>
-      </nav>
-      <div class="footer-right"><span class="page-count" aria-live="polite" aria-atomic="true"><span id="current-number">1</span><span class="count-divider">/</span>5</span><button class="nav-button next-button" id="next-button" type="button"><span id="next-label">Next</span><svg aria-hidden="true"><use href="#arrow-right"/></svg></button></div>
-    </footer>
-  </div>
-
-  <noscript><p class="noscript-message">Please enable JavaScript to explore the three scenes. You can also <a href="mailto:chenpengxu321@gmail.com">contact Pengxu by email</a> or <a href="https://linkedin.com/in/pengxu-vincent-chen-857082221">visit LinkedIn</a>.</p></noscript>
+        </div><div class="takeaway" id="communication-result" role="status" hidden><p class="interaction-answer">Residence time is the average time something stays in a place before leaving.</p><p class="principle-description">I explain complex results through scientific visualisation, presentations and mentoring.</p></div></article></div></div><footer class="contact view-contact" aria-labelledby="contact-work"><div><h2 id="contact-work">Let's talk.</h2><p><a href="mailto:chenpengxu321@gmail.com">chenpengxu321@gmail.com</a></p></div><div class="contact-links"><a href="https://uk.linkedin.com/in/pengxu-vincent-chen-857082221">LinkedIn <span aria-hidden="true">↗</span></a><a href="https://scholar.google.com/citations?user=uM3Ms-MAAAAJ&amp;hl=en">Google Scholar <span aria-hidden="true">↗</span></a></div></footer>
+    </section>
+    <section id="view-education" class="view sub-view" data-view="education" data-title="Education" aria-labelledby="education-heading" hidden inert>
+      <div class="view-content narrow-content"><div class="view-heading"><h1 id="education-heading" tabindex="-1">Education</h1></div><ul class="compact-list"><li><div class="record-heading"><span>The University of Edinburgh</span><span class="record-date">2022–2026</span></div><p class="record-detail">PhD in Engineering (Applied Physics)</p></li><li><div class="record-heading"><span>Zhejiang University</span><span class="record-date">2019–2022</span></div><p class="record-detail">MEng in Engineering Materials</p></li><li><div class="record-heading"><span>China University of Geosciences</span><span class="record-date">2015–2019</span></div><p class="record-detail">BEng in Civil Engineering</p></li></ul></div><footer class="contact view-contact" aria-labelledby="contact-education"><div><h2 id="contact-education">Let's talk.</h2><p><a href="mailto:chenpengxu321@gmail.com">chenpengxu321@gmail.com</a></p></div><div class="contact-links"><a href="https://uk.linkedin.com/in/pengxu-vincent-chen-857082221">LinkedIn <span aria-hidden="true">↗</span></a><a href="https://scholar.google.com/citations?user=uM3Ms-MAAAAJ&amp;hl=en">Google Scholar <span aria-hidden="true">↗</span></a></div></footer>
+    </section>
+    <section id="view-recognition" class="view sub-view" data-view="recognition" data-title="Selected recognition" aria-labelledby="recognition-heading" hidden inert>
+      <div class="view-content narrow-content"><div class="view-heading"><h1 id="recognition-heading" tabindex="-1">Selected recognition</h1></div><ul class="compact-list"><li><div class="record-heading"><span>Research featured by ARCHER2</span><span class="record-date">2026</span></div><p class="record-detail">UK National Supercomputing Service case study</p></li><li><div class="record-heading"><span>Best Early Career Researcher</span><span class="record-date">2025</span></div><p class="record-detail">ARCHER2 Image and Video Competition</p></li><li><div class="record-heading"><span>Best Poster Award</span><span class="record-date">2024</span></div><p class="record-detail">School of Engineering University of Edinburgh</p></li><li><div class="record-heading"><span>Best Paper</span><span class="record-date">2021</span></div><p class="record-detail">Transportation Research Congress</p></li><li><div class="record-heading"><span>President Scholarship</span><span class="record-date">2018</span></div><p class="record-detail">Top 3%</p></li><li><div class="record-heading"><span>Excellent Award</span><span class="record-date">2017</span></div><p class="record-detail">Top 15% · The 11th National College Student Mechanics Contest</p></li><li><div class="record-heading"><span>Talent Scholarship</span><span class="record-date">2016</span></div><p class="record-detail">Top 0.2%</p></li></ul></div><footer class="contact view-contact" aria-labelledby="contact-recognition"><div><h2 id="contact-recognition">Let's talk.</h2><p><a href="mailto:chenpengxu321@gmail.com">chenpengxu321@gmail.com</a></p></div><div class="contact-links"><a href="https://uk.linkedin.com/in/pengxu-vincent-chen-857082221">LinkedIn <span aria-hidden="true">↗</span></a><a href="https://scholar.google.com/citations?user=uM3Ms-MAAAAJ&amp;hl=en">Google Scholar <span aria-hidden="true">↗</span></a></div></footer>
+    </section>
+    <section id="view-outputs" class="view sub-view" data-view="outputs" data-title="Research outputs" aria-labelledby="outputs-heading" hidden inert>
+      <div class="view-content"><div class="view-heading outputs-heading"><h1 id="outputs-heading" tabindex="-1">Research outputs</h1><a href="https://scholar.google.com/citations?user=uM3Ms-MAAAAJ&amp;hl=en">Google Scholar <span aria-hidden="true">↗</span></a></div>
+      <ol class="publication-list all-outputs"><li id="output-P3"><span class="output-year">2026</span><div>
+    <a class="publication-title" href="https://doi.org/10.1063/5.0335640">Freezing under motion: How surface vibrations suppress ice nucleation in water nanofilms</a>
+    <p class="publication-meta">Chen P, Sullivan P, Pillai R and Datta S</p>
+    <p class="publication-meta">The Journal of Chemical Physics · 2026 · 165 · 024703 · DOI: 10.1063/5.0335640</p></div></li><li id="output-R8"><span class="output-year">2026</span><div><p class="output-kind">Research feature · Case study</p>
+    <a class="publication-title" href="https://www.archer2.ac.uk/research/case-studies/freeze-desalination/Archer2_Freeze_Desalination_AW_LOW.pdf">Engineering clean water by freezing Using vibrations for desalination</a>
+    <p class="publication-meta">Chen P, Romero Vargas Castrillon S, Pillai R and Datta S</p>
+    <p class="publication-meta">ARCHER2 research case study · 2026</p></div></li><li id="output-P2"><span class="output-year">2025</span><div>
+    <a class="publication-title" href="https://doi.org/10.1039/D5NR00326A">Nanoscale insights into vibration-induced heterogeneous ice nucleation</a>
+    <p class="publication-meta">Chen P, Pillai R and Datta S</p>
+    <p class="publication-meta">Nanoscale · 2025 · 17 · 14172-14182 · DOI: 10.1039/D5NR00326A</p></div></li><li id="output-P7"><span class="output-year">2023</span><div>
+    <a class="publication-title" href="https://doi.org/10.1016/j.ijadhadh.2023.103393">Multiscale modelling of bitumen-aggregate interfaces from molecular debonding to pull-off strength</a>
+    <p class="publication-meta">Chen P, Wang J, Luo X, Wang L and Zhang Y</p>
+    <p class="publication-meta">International Journal of Adhesion and Adhesives · 2023 · 124 · 103393 · DOI: 10.1016/j.ijadhadh.2023.103393</p></div></li><li id="output-P6"><span class="output-year">2022</span><div>
+    <a class="publication-title" href="https://doi.org/10.1016/j.apsusc.2021.151318">Modeling percentages of cohesive and adhesive debonding in bitumen-aggregate interfaces using molecular dynamics approaches</a>
+    <p class="publication-meta">Chen P, Luo X, Gao Y and Zhang Y</p>
+    <p class="publication-meta">Applied Surface Science · 2022 · 571 · 151318 · DOI: 10.1016/j.apsusc.2021.151318</p></div></li><li id="output-P5"><span class="output-year">2020</span><div>
+    <a class="publication-title" href="https://doi.org/10.1016/j.conbuildmat.2020.118547">Effect of a lignin-based polyurethane on adhesion properties of asphalt binder during UV aging process</a>
+    <p class="publication-meta">Peng C, Huang S, You Z, Xu F, You L, Ouyang H, Li T, Guo C, Ma H, Chen P and Dai J</p>
+    <p class="publication-meta">Construction and Building Materials · 2020 · 247 · 118547 · DOI: 10.1016/j.conbuildmat.2020.118547</p></div></li><li id="output-P1"><span class="output-year">2018</span><div>
+    <a class="publication-title" href="https://doi.org/10.1016/j.conbuildmat.2018.09.128">The anti-icing and mechanical properties of a superhydrophobic coating on asphalt pavement</a>
+    <p class="publication-meta">Peng C, Chen P, You Z, Lv S, Xu F, Zhang W, Yu J and Zhang H</p>
+    <p class="publication-meta">Construction and Building Materials · 2018 · 190 · 83-94 · DOI: 10.1016/j.conbuildmat.2018.09.128</p></div></li><li id="output-P4"><span class="output-year">2018</span><div>
+    <a class="publication-title" href="https://doi.org/10.1016/j.conbuildmat.2018.02.186">Effect of silane coupling agent on improving the adhesive properties between asphalt binder and aggregates</a>
+    <p class="publication-meta">Peng C, Chen P, You Z, Lv S, Zhang R, Xu F, Zhang H and Chen H</p>
+    <p class="publication-meta">Construction and Building Materials · 2018 · 169 · 591-600 · DOI: 10.1016/j.conbuildmat.2018.02.186</p></div></li></ol></div><footer class="contact view-contact" aria-labelledby="contact-outputs"><div><h2 id="contact-outputs">Let's talk.</h2><p><a href="mailto:chenpengxu321@gmail.com">chenpengxu321@gmail.com</a></p></div><div class="contact-links"><a href="https://uk.linkedin.com/in/pengxu-vincent-chen-857082221">LinkedIn <span aria-hidden="true">↗</span></a><a href="https://scholar.google.com/citations?user=uM3Ms-MAAAAJ&amp;hl=en">Google Scholar <span aria-hidden="true">↗</span></a></div></footer>
+    </section>
+  </main>
+  <script type="application/json" id="portfolio-data">{"site":{"profile":{"name":"Pengxu (Vincent) Chen","role":"Materials scientist","portrait":"assets/profile.jpg","email":"chenpengxu321@gmail.com"},"hero":{"heading":"Material interfaces for a sustainable future.","definition":"The thin boundary where materials meet."},"goals":[{"id":"energy","label":"Save energy","subtitle":"Repel water and control freezing","before_image":"assets/opening-energy.jpg","after_image":"assets/selected-energy-leaf.jpg","projects":["E1","E2"],"title":"Save energy."},{"id":"carbon","label":"Cut carbon","subtitle":"Build longer-lasting pavement","before_image":"assets/opening-carbon.jpg","after_image":"assets/selected-carbon.jpg","projects":["C1","C2","C3"],"title":"Cut carbon."},{"id":"water","label":"Make clean water","subtitle":"Control ice for desalination","before_image":"assets/opening-water.jpg","after_image":"assets/selected-water.png","projects":["W1"],"title":"Make clean water."}],"how_i_work":[{"heading":"I solve problems.","text":"I connect molecular behaviour to mechanisms and measurable material response through simulation, theory and experimental validation.","question":"Does shaking help water freeze?","answer":"It depends on how you shake it."},{"heading":"I make work easier.","text":"I build reusable simulation workflows and analysis tools, and automate large simulation campaigns on national computing systems.","question":"How do scattered tasks become a repeatable workflow?","answer":"A clear sequence makes repeated work easier."},{"heading":"I help others understand.","text":"I explain complex results through scientific visualisation, presentations and mentoring.","question":"How can a complex idea become easy to understand?","answer":"Residence time is the average time something stays in a place before leaving."}],"about":{"text":"My research connects surface design, adhesion and ice nucleation. I combine molecular simulation, laboratory experiments and scientific computing to understand interfaces and address practical environmental questions."},"education":[{"institution":"The University of Edinburgh","description":"PhD in Engineering (Applied Physics)","dates":"2022–2026"},{"institution":"Zhejiang University","description":"MEng in Engineering Materials","dates":"2019–2022"},{"institution":"China University of Geosciences","description":"BEng in Civil Engineering","dates":"2015–2019"}],"recognition":[{"title":"Research featured by ARCHER2","detail":"UK National Supercomputing Service case study","year":2026},{"title":"Best Early Career Researcher","detail":"ARCHER2 Image and Video Competition","year":2025},{"title":"Best Poster Award","detail":"School of Engineering University of Edinburgh","year":2024},{"title":"Best Paper","detail":"Transportation Research Congress","year":2021},{"title":"President Scholarship","detail":"Top 3%","year":2018},{"title":"Excellent Award","detail":"Top 15% · The 11th National College Student Mechanics Contest","year":2017,"date":"2017"},{"title":"Talent Scholarship","detail":"Top 0.2%","year":2016}],"skills":["Molecular dynamics","Interfacial phenomena","Multiscale modelling","Experimental validation","MATLAB and C++","HPC and workflow automation","Scientific visualisation","Python","Machine learning"],"links":{"contact":"mailto:chenpengxu321@gmail.com","scholar":"https://scholar.google.com/citations?user=uM3Ms-MAAAAJ&hl=en","linkedin":"https://uk.linkedin.com/in/pengxu-vincent-chen-857082221"}},"research":{"owner":"Pengxu (Vincent) Chen","focus":"Interfaces","headline":"Material interfaces for a sustainable future.","definition":"The thin boundary where materials meet.","mission":"I study where materials meet, to help save energy, cut carbon and make clean water.","goals":[{"id":"energy","label":"Save energy","subtitle":"Repel water and control freezing","interface":"Surface / water / ice","projects":["E1","E2"],"before_image":"assets/opening-energy.jpg","after_image":"assets/selected-energy-leaf.jpg"},{"id":"carbon","label":"Cut carbon","subtitle":"Build longer-lasting pavement","interface":"Bitumen / mineral","projects":["C1","C2","C3"],"before_image":"assets/opening-carbon.jpg","after_image":"assets/selected-carbon.jpg"},{"id":"water","label":"Make clean water","subtitle":"Control ice for desalination","interface":"Ice / saline water and solid / water","projects":["W1"],"before_image":"assets/opening-water.jpg","after_image":"assets/selected-water.png"}],"projects":[{"id":"E1","goal":"energy","title":"Passive anti icing through surface design","display_title":"Surfaces that repel water","summary":"I contributed to laboratory research on superhydrophobic pavement coatings, studying water repellency, icing and mechanical performance.","finding":"The coating delayed droplet icing and reduced ice adhesion under the reported test conditions.","purpose":"Reduce reliance on energy intensive ice removal through passive surface design.","methods":["Laboratory experiments","Surface characterisation","Wetting and adhesion"],"papers":["P1"],"role":"Coauthor and laboratory contributor","related_projects":[]},{"id":"E2","goal":"energy","title":"Vibration controlled ice nucleation","display_title":"Control when freezing begins","summary":"I used molecular dynamics to investigate how surface vibrations promote or suppress ice nucleation in different water environments.","finding":"Confined water and interfacial nanofilms respond differently; vibration can favour nucleation or suppress it depending on geometry and conditions.","purpose":"Develop molecular guidance for efficient freezing and anti icing strategies.","methods":["Molecular dynamics","Non equilibrium analysis","HPC and scientific programming"],"papers":["P2","P3"],"role":"First author","related_projects":["W1"]},{"id":"C1","goal":"carbon","title":"Chemical treatment of pavement interfaces","display_title":"Improve adhesion through chemistry","summary":"I contributed to experimental studies of silane coupling agents and lignin based polyurethane modifiers for asphalt adhesion.","finding":"These studies investigated improved adhesion and resistance to moisture or UV ageing using different chemical treatments.","purpose":"Support durable pavement materials with less maintenance and reconstruction.","methods":["Chemical modification","Pull off testing","Surface energy and characterisation"],"papers":["P4","P5"],"role":"Coauthor and experimental contributor","related_projects":["C2","C3"]},{"id":"C2","goal":"carbon","title":"Molecular analysis of adhesive and cohesive failure","display_title":"Understand where materials fail","summary":"I modelled failure within bitumen and along bitumen mineral interfaces to connect molecular behaviour with observed debonding patterns.","finding":"The balance of adhesive and cohesive failure depends on material and loading conditions.","purpose":"Explain failure mechanisms that matter for pavement durability.","methods":["Molecular dynamics","Adhesion and fracture","Failure analysis"],"papers":["P6"],"role":"First author","related_projects":["C1","C3"]},{"id":"C3","goal":"carbon","title":"Multiscale prediction of pull off strength","display_title":"Connect molecules to material design","summary":"I linked molecular debonding behaviour to pull off experiments and strength prediction through multiscale modelling.","finding":"Simulation and experiment informed a modified strength model for bitumen aggregate interfaces.","purpose":"Provide engineering guidance for the design of more durable pavement materials.","methods":["Coarse grained molecular dynamics","Pull off experiments","Fracture mechanics and upscaling"],"papers":["P7"],"role":"First author","related_projects":["C1","C2"]},{"id":"W1","goal":"water","title":"Molecular mechanisms for freeze desalination","display_title":"Separate fresh water by freezing","summary":"I extended vibration controlled freezing research to saline water, studying the molecular processes relevant to freeze desalination.","finding":"The work connects interfacial ice nucleation and saltwater behaviour to questions of practical ice formation and separation.","purpose":"Contribute to more energy efficient routes to clean water.","methods":["Saline water molecular dynamics","Ice nucleation","HPC analysis"],"papers":["R8"],"role":"Researcher and named ARCHER2 case study author","related_projects":["E2"]}],"publications":[{"id":"P1","title":"The anti-icing and mechanical properties of a superhydrophobic coating on asphalt pavement","year":2018,"journal":"Construction and Building Materials","volume":"190","pages":"83-94","doi":"10.1016/j.conbuildmat.2018.09.128","url":"https://doi.org/10.1016/j.conbuildmat.2018.09.128","authors":"Peng C, Chen P, You Z, Lv S, Xu F, Zhang W, Yu J and Zhang H"},{"id":"P2","title":"Nanoscale insights into vibration-induced heterogeneous ice nucleation","year":2025,"journal":"Nanoscale","volume":"17","pages":"14172-14182","doi":"10.1039/D5NR00326A","url":"https://doi.org/10.1039/D5NR00326A","authors":"Chen P, Pillai R and Datta S"},{"id":"P3","title":"Freezing under motion: How surface vibrations suppress ice nucleation in water nanofilms","year":2026,"journal":"The Journal of Chemical Physics","volume":"165","pages":"024703","doi":"10.1063/5.0335640","url":"https://doi.org/10.1063/5.0335640","authors":"Chen P, Sullivan P, Pillai R and Datta S"},{"id":"P4","title":"Effect of silane coupling agent on improving the adhesive properties between asphalt binder and aggregates","year":2018,"journal":"Construction and Building Materials","volume":"169","pages":"591-600","doi":"10.1016/j.conbuildmat.2018.02.186","url":"https://doi.org/10.1016/j.conbuildmat.2018.02.186","authors":"Peng C, Chen P, You Z, Lv S, Zhang R, Xu F, Zhang H and Chen H"},{"id":"P5","title":"Effect of a lignin-based polyurethane on adhesion properties of asphalt binder during UV aging process","year":2020,"journal":"Construction and Building Materials","volume":"247","pages":"118547","doi":"10.1016/j.conbuildmat.2020.118547","url":"https://doi.org/10.1016/j.conbuildmat.2020.118547","authors":"Peng C, Huang S, You Z, Xu F, You L, Ouyang H, Li T, Guo C, Ma H, Chen P and Dai J"},{"id":"P6","title":"Modeling percentages of cohesive and adhesive debonding in bitumen-aggregate interfaces using molecular dynamics approaches","year":2022,"journal":"Applied Surface Science","volume":"571","pages":"151318","doi":"10.1016/j.apsusc.2021.151318","url":"https://doi.org/10.1016/j.apsusc.2021.151318","authors":"Chen P, Luo X, Gao Y and Zhang Y"},{"id":"P7","title":"Multiscale modelling of bitumen-aggregate interfaces from molecular debonding to pull-off strength","year":2023,"journal":"International Journal of Adhesion and Adhesives","volume":"124","pages":"103393","doi":"10.1016/j.ijadhadh.2023.103393","url":"https://doi.org/10.1016/j.ijadhadh.2023.103393","authors":"Chen P, Wang J, Luo X, Wang L and Zhang Y"},{"id":"R8","title":"Engineering clean water by freezing Using vibrations for desalination","year":2026,"journal":"ARCHER2 research case study","url":"https://www.archer2.ac.uk/research/case-studies/freeze-desalination/Archer2_Freeze_Desalination_AW_LOW.pdf","authors":"Chen P, Romero Vargas Castrillon S, Pillai R and Datta S","type":"Case study"}],"claims_guidance":{"energy":"Present energy reduction as the research aim. Do not claim net energy savings relative to electrothermal heating without a system energy comparison.","carbon":"Present reduced maintenance and associated carbon emissions as the intended durability benefit. Do not imply a quantified carbon saving or completed lifecycle assessment.","water":"Present freeze desalination as a route being investigated toward energy efficient clean water. Do not imply a deployed desalination plant or proven superiority across operating conditions."}},"manifest":{"path_base":"site root","hero_fit":"cover","assets":[{"id":"opening-energy","path":"assets/opening-energy.jpg","kind":"Optical photograph","alt":"Water droplets on glass, the original Save energy opening photograph","credit":"CHUTTERSNAP via Unsplash","source_url":"https://unsplash.com/photos/water-droplets-on-glass-surface-Mxii7n2rdvY","object_position":[50,50],"width":665,"height":1000,"sha256":"fe7fbd6a87b989305d08d5da89eb43f6af35c21adbb960bef7cbf19ff73bedc6","note":"Opening source file unchanged from the approved screenshot"},{"id":"opening-carbon","path":"assets/opening-carbon.jpg","kind":"Optical photograph","alt":"Grey asphalt texture, the original Cut carbon opening photograph","credit":"Bernard Hermant via Unsplash","source_url":"https://unsplash.com/photos/close-up-of-grey-asphalt-texture-qi-H70ga93s","object_position":[50,50],"width":900,"height":600,"sha256":"2839fedc8b73fdb072400bb8091c180d9e316bfc638ebfa89b35836c231a4b5f","note":"Opening source file unchanged from the approved screenshot"},{"id":"opening-water","path":"assets/opening-water.jpg","kind":"Optical photograph","alt":"Blue ice texture, the original clean water opening photograph","credit":"Yunfan Li via Unsplash","source_url":"https://unsplash.com/photos/close-up-of-textured-blue-ice-with-white-streaks-BlZAz2WROCg","object_position":[50,50],"width":900,"height":600,"sha256":"ceb90a85a297117a385b5cd9ba67d285eb0375da345e885ec0b0518ce3347fda","note":"Opening source file unchanged from the approved screenshot"},{"id":"selected-energy","path":"assets/selected-energy-leaf.jpg","kind":"Optical reference photograph","alt":"Water droplets beading on a green leaf","credit":"Andrei Castanha via Unsplash","source_url":"https://unsplash.com/photos/close-up-of-water-droplets-on-a-green-leaf-_xKLNDJJ64Y","object_position":[45,43],"width":2000,"height":3066,"sha256":"19fccc1f27553bb7f37a1db924d0477339324aab307cbd5b4842a05937b7143e","note":"Natural leaf surface, used as an illustrative optical reference for water repellency; not an artificial pavement coating or Pengxu Chen’s experimental result. Free commercial and non-commercial use under the Unsplash License; no separate permission required. Photographer credited voluntarily.","license":"Unsplash License","license_url":"https://unsplash.com/license"},{"id":"selected-carbon","path":"assets/selected-carbon.jpg","kind":"Environmental scanning electron micrograph (ESEM, LFD mode)","alt":"Rough limestone on the left meeting smooth bitumen on the right at a near-vertical interface","credit":"Lu Zhou, Gordon Airey, Yuqing Zhang and Chonghui Wang (2024), Figure 6, right-hand LFD micrograph; CC BY 4.0","source_url":"https://doi.org/10.1080/14680629.2024.2426012","object_position":[25,50],"width":812,"height":539,"sha256":"fb352aa6862cde88adaa3f3034b4dc3062b8eac599aca24026545ffc7b7f4b25","note":"Cropped from Figure 6, right-hand image, PDF page 11, in Multiscale characterisation on the adhesion and selective adsorption at bitumen–mineral interface. White margins, left-hand panel and instrument/scale strip removed; no retouching or recolouring. Illustrative published research by Zhou et al.; not Pengxu Chen’s experimental result. Preserve the limestone–bitumen boundary when using object-fit: cover. Cropped image has no scale bar; do not use it for dimensional measurements.","license":"CC BY 4.0","license_url":"https://creativecommons.org/licenses/by/4.0/","original_pdf_url":"https://publications.aston.ac.uk/id/eprint/46973/1/Multiscale_characterisation_on_the_adhesion_and_selective_adsorption_at_bitumen_mineral_interface.pdf#page=11"},{"id":"selected-water","path":"assets/selected-water.png","kind":"Molecular visualisation","alt":"Pengxu Chen supplied molecular illustration for freeze desalination","credit":"Supplied by Pengxu Chen","source_url":"","object_position":[52,50],"width":2048,"height":1152,"sha256":"398c751d5f2bf696599111816cbe3e3db03a5cff4cae1cbc84e406d309654502","note":"Unchanged copy of freezeDesalination.png. Do not recolour or assign ion identities without the author legend."},{"id":"profile","path":"assets/profile.jpg","kind":"Profile portrait","alt":"Pengxu Vincent Chen","credit":"Research group profile for Pengxu Chen","source_url":"https://multiscaleflowx.github.io/team/chen-pengxu/","object_position":[50,40],"width":1133,"height":1511,"sha256":"86999bd5fcd625784d1a506842d9b093640575ed7e77cce36e271a83727fc325","note":"Use this actual portrait. No generated person or alteration of appearance."}]}}</script>
 </body>
 </html>

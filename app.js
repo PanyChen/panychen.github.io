@@ -1,193 +1,154 @@
-(() => {
-  'use strict';
+import { initialState, selectGoal, selectProject } from './state.js';
+import { escapeHTML as e, publicationHTML } from './content.js';
+import { initNavigation } from './navigation.js';
+import { initWorkInteractions } from './work-interactions.js';
 
-  const pages = [...document.querySelectorAll('[data-page]')];
-  const progressButtons = [...document.querySelectorAll('.page-progress [data-go]')];
-  const backButton = document.querySelector('#back-button');
-  const nextButton = document.querySelector('#next-button');
-  const nextLabel = document.querySelector('#next-label');
-  const pageNumber = document.querySelector('#current-number');
-  const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let currentPage = 0;
-  let touchStart = null;
+const { site, research, manifest } = JSON.parse(document.querySelector('#portfolio-data').textContent);
+const assets = new Map(manifest.assets.map(asset => [asset.path, asset]));
+const projects = new Map(research.projects.map(project => [project.id, project]));
+const publications = new Map(research.publications.map(publication => [publication.id, publication]));
+const region = document.querySelector('#research');
+const story = document.querySelector('#story');
+const storyNav = document.querySelector('#story-nav');
+const status = document.querySelector('#selection-status');
+const imageError = document.querySelector('#image-error');
+const cards = [...document.querySelectorAll('.goal-card')];
+const failedImages = new Set();
+let state = { ...initialState };
+const updateWorkView = initWorkInteractions();
+let navigation;
 
-  const waterScene = document.querySelector('.water-scene');
-  const glassButton = document.querySelector('#glass-button');
-  const glassHint = document.querySelector('#glass-hint');
-  const icePause = document.querySelector('#ice-pause');
-  const iceResult = document.querySelector('#ice-result');
-  let iceStarted = false;
-  let iceRunning = false;
-
-  function revealIceResult() {
-    iceResult.hidden = false;
+function updateBackdrop() {
+  const active = document.body.dataset.view === 'home' ? state.activeGoal : null;
+  document.body.dataset.backdrop = active || '';
+  for (const layer of document.querySelectorAll('.backdrop-layer')) {
+    layer.classList.toggle('is-visible', layer.dataset.backdrop === active);
   }
+}
 
-  function updateIce() {
-    const paused = currentPage !== 1 || document.hidden || !iceRunning;
-    waterScene.classList.toggle('is-active', iceStarted);
-    waterScene.classList.toggle('is-paused', paused);
-    waterScene.classList.toggle('is-hint-paused', currentPage !== 1 || document.hidden);
-    icePause.hidden = !iceStarted || motionPreference.matches;
-    icePause.textContent = iceRunning ? 'Pause animation' : 'Resume';
-    glassHint.toggleAttribute('hidden', iceStarted);
-    if (!iceStarted) return;
-    if (motionPreference.matches) {
-      glassButton.setAttribute('aria-label', 'Glass of water: it depends on how you shake it.');
-    } else {
-      glassButton.setAttribute('aria-label', iceRunning ? 'Pause the glass animation' : 'Resume the glass animation');
-    }
+const introductions = {
+  energy: 'From water-repellent surfaces to vibration-controlled freezing, I investigate how interfaces can guide passive anti-icing and the control of ice formation.',
+  carbon: 'Longer-lasting pavement is the shared purpose: improve the chemistry, understand the failure mechanism, then connect molecular behaviour to engineering prediction.',
+  water: 'I investigate the molecular processes behind ice formation in saline water, toward more energy efficient routes to clean water.',
+};
+
+function describeCard(goal) {
+  const card = document.querySelector(`#goal-${goal.id}`);
+  const selected = state.activeGoal === goal.id;
+  const image = selected && card.dataset.imageReady === 'true' ? goal.after_image : goal.before_image;
+  document.querySelector(`#state-${goal.id}`).textContent = assets.get(image).alt;
+}
+
+function loadSelectedImage(card) {
+  const image = card.querySelector('.goal-image--selected');
+  if (image.hasAttribute('src')) return;
+  const goal = site.goals.find(item => item.id === card.dataset.goal);
+  image.addEventListener('load', () => {
+    card.dataset.imageReady = 'true';
+    describeCard(goal);
+  }, { once: true });
+  image.addEventListener('error', () => {
+    card.dataset.imageReady = 'false';
+    failedImages.add(goal.id);
+    describeCard(goal);
+    showImageError();
+  }, { once: true });
+  image.src = image.dataset.src;
+}
+
+function showImageError() {
+  const failed = failedImages.has(state.activeGoal);
+  imageError.hidden = !failed;
+  imageError.textContent = failed ? 'The selected reference image could not load. The opening photograph is shown; the full research description is available below.' : '';
+}
+
+function renderStory() {
+  const project = projects.get(state.selectedProject);
+  if (!project) { story.replaceChildren(); return; }
+  for (const button of storyNav.querySelectorAll('[data-project]')) {
+    button.setAttribute('aria-pressed', String(button.dataset.project === project.id));
   }
+  story.dataset.project = project.id;
+  const paperList = project.papers.map(id => `<li data-publication="${e(id)}">${publicationHTML(publications.get(id))}</li>`).join('');
+  const cases = project.id === 'E2' ? `<div class="detail-block"><h4 class="detail-label">Two studied cases</h4><p><strong>Promote freezing:</strong> vibration-induced ice nucleation in confined water (<a href="${e(publications.get('P2').url)}">Nanoscale, 2025</a>).</p><p><strong>Suppress freezing:</strong> surface vibrations suppress ice nucleation in water nanofilms (<a href="${e(publications.get('P3').url)}">The Journal of Chemical Physics, 2026</a>). The geometry and conditions differ between these cases.</p></div>` : '';
+  const related = project.related_projects.length ? `<div class="related">Related research: ${project.related_projects.map(id => `<button type="button" data-related="${e(id)}">${e(projects.get(id).display_title)}</button>`).join(' · ')}</div>` : '';
+  story.innerHTML = `<div><h3 id="story-title" class="story-title">${e(project.display_title)}</h3><p class="story-summary">${e(project.summary)}</p><p class="authorship">${e(project.role)}</p></div>
+    <div><div class="detail-block"><h4 class="detail-label">Research finding</h4><p>${e(project.finding)}</p></div>${cases}<div class="detail-block"><h4 class="detail-label">Environmental purpose</h4><p>${e(project.purpose)}</p></div><div class="detail-block"><h4 class="detail-label">Methods</h4><p>${project.methods.map(e).join(' · ')}</p></div></div>
+    <div class="story-papers"><h4>${project.id === 'W1' ? 'Research case study' : project.papers.length === 1 ? 'Related paper' : 'Related papers'}</h4><ul class="publication-list">${paperList}</ul></div>${related}`;
+}
 
-  function tapGlass() {
-    iceRunning = iceStarted ? !iceRunning : true;
-    iceStarted = true;
-    revealIceResult();
-    updateIce();
+function renderGoal() {
+  updateBackdrop();
+  const goal = site.goals.find(item => item.id === state.activeGoal);
+  for (const card of cards) {
+    card.setAttribute('aria-pressed', String(card.dataset.goal === state.activeGoal));
+    describeCard(site.goals.find(item => item.id === card.dataset.goal));
   }
-  glassButton.addEventListener('click', tapGlass);
-  icePause.addEventListener('click', () => { iceRunning = !iceRunning; updateIce(); });
-  document.addEventListener('visibilitychange', updateIce);
-  motionPreference.addEventListener('change', updateIce);
-
-  const memoBoard = document.querySelector('#memo-board');
-  const organiseButton = document.querySelector('#organise-button');
-  const workflowReplay = document.querySelector('#workflow-replay');
-  const workflowResult = document.querySelector('#workflow-result');
-  function setWorkflow(organised) {
-    memoBoard.classList.toggle('is-organised', organised);
-    memoBoard.setAttribute('aria-label', organised
-      ? 'A repeatable workflow: prepare data and files, run scripts and tasks, check the output using checks and notes, then summarise results.'
-      : 'Seven scattered notes: data, files, script, tasks, checks, notes, and results.');
-    workflowResult.hidden = !organised;
-    workflowReplay.hidden = !organised;
-    organiseButton.hidden = organised;
-    if (organised) workflowReplay.focus({ preventScroll: true });
-    else organiseButton.focus({ preventScroll: true });
+  region.hidden = !goal;
+  showImageError();
+  if (!goal) {
+    story.replaceChildren();
+    storyNav.replaceChildren();
+    delete story.dataset.project;
+    status.textContent = 'Selection cleared. All three opening photographs are shown.';
+    return;
   }
-  organiseButton.addEventListener('click', () => setWorkflow(true));
-  workflowReplay.addEventListener('click', () => setWorkflow(false));
+  document.querySelector('#research-heading').textContent = goal.title;
+  document.querySelector('#goal-intro').textContent = introductions[goal.id];
+  storyNav.innerHTML = goal.projects.map(id => `<button type="button" class="story-choice" data-project="${e(id)}" aria-controls="story" aria-pressed="false">${e(projects.get(id).display_title)}</button>`).join('');
+  renderStory();
+  status.textContent = `${goal.label} selected. ${goal.projects.length} research ${goal.projects.length === 1 ? 'story' : 'stories'} available below the photographs.`;
+}
 
-  const explanationScene = document.querySelector('.explanation-scene');
-  const equationView = document.querySelector('#equation-view');
-  const touristView = document.querySelector('#tourist-view');
-  const eraserButton = document.querySelector('#eraser-button');
-  const equationReset = document.querySelector('#equation-reset');
-  const communicationResult = document.querySelector('#communication-result');
-  let eraserTimer = null;
+function clearSelection() {
+  if (!state.activeGoal) return;
+  const previousCard = document.querySelector(`#goal-${state.activeGoal}`);
+  const restoreFocus = region.contains(document.activeElement);
+  state = { ...initialState };
+  renderGoal();
+  if (restoreFocus) previousCard.focus({ preventScroll: true });
+}
 
-  function finishExplanation() {
-    if (eraserTimer !== null) window.clearTimeout(eraserTimer);
-    eraserTimer = null;
-    explanationScene.classList.remove('is-erasing');
-    equationView.hidden = true;
-    touristView.hidden = false;
-    eraserButton.hidden = true;
-    eraserButton.disabled = false;
-    equationReset.hidden = false;
-    communicationResult.hidden = false;
-    if (currentPage === 3) equationReset.focus({ preventScroll: true });
-  }
-
-  eraserButton.addEventListener('click', () => {
-    if (motionPreference.matches) { finishExplanation(); return; }
-    explanationScene.classList.add('is-erasing');
-    eraserButton.disabled = true;
-    eraserTimer = window.setTimeout(finishExplanation, 550);
+for (const card of cards) {
+  card.addEventListener('click', () => {
+    loadSelectedImage(card);
+    state = selectGoal(state, card.dataset.goal, site.goals);
+    renderGoal();
   });
-  equationReset.addEventListener('click', () => {
-    equationView.hidden = false;
-    touristView.hidden = true;
-    eraserButton.hidden = false;
-    equationReset.hidden = true;
-    communicationResult.hidden = true;
-    eraserButton.focus({ preventScroll: true });
-  });
-
-  function goToPage(index, { focus = true, updateHistory = true } = {}) {
-    if (!Number.isInteger(index) || index < 0 || index >= pages.length) return;
-    const previousPage = currentPage;
-    if (eraserTimer !== null && index !== 3) finishExplanation();
-    currentPage = index;
-    pages.forEach((page, pageIndex) => {
-      const active = pageIndex === index;
-      page.hidden = !active;
-      page.inert = !active;
-      page.classList.remove('is-entering', 'is-entering-back');
-      if (active && index !== previousPage) {
-        // Restart the short page-turn transition only on an actual page change.
-        void page.offsetWidth;
-        page.classList.add('is-entering');
-        page.classList.toggle('is-entering-back', index < previousPage);
-      }
-    });
-    progressButtons.forEach((button, buttonIndex) => {
-      if (buttonIndex === index) button.setAttribute('aria-current', 'page');
-      else button.removeAttribute('aria-current');
-    });
-    backButton.disabled = index === 0;
-    nextLabel.textContent = index === 4 ? 'Cover' : 'Next';
-    nextButton.setAttribute('aria-label', index === 4 ? 'Return to cover' : 'Next page');
-    pageNumber.textContent = String(index + 1);
-    updateIce();
-    if (updateHistory && location.hash !== `#${pages[index].id}`) {
-      history.pushState({ page: index }, '', `#${pages[index].id}`);
-    }
-    if (focus) {
-      pages[index].querySelector('h1, h2').focus({ preventScroll: true });
-      window.scrollTo({ top: 0, behavior: 'instant' });
-    }
+}
+storyNav.addEventListener('click', event => {
+  const button = event.target.closest('[data-project]');
+  if (!button) return;
+  state = selectProject(state, button.dataset.project, site.goals);
+  renderStory();
+  status.textContent = `${projects.get(state.selectedProject).display_title} selected.`;
+});
+story.addEventListener('click', event => {
+  const button = event.target.closest('[data-related]');
+  if (!button) return;
+  const project = projects.get(button.dataset.related);
+  if (project.goal !== state.activeGoal) {
+    state = selectGoal(state, project.goal, site.goals);
+    loadSelectedImage(document.querySelector(`#goal-${project.goal}`));
   }
-
-  function pageFromHash() {
-    const hash = location.hash.slice(1);
-    const index = pages.findIndex(page => page.id === hash);
-    return index < 0 ? 0 : index;
+  state = selectProject(state, project.id, site.goals);
+  renderGoal();
+  document.querySelector(`#goal-${project.goal}`).focus({ preventScroll: true });
+});
+document.querySelector('#clear-selection').addEventListener('click', clearSelection);
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && state.activeGoal && navigation.activeView === 'home' && document.querySelector('#menu-toggle').getAttribute('aria-expanded') !== 'true') {
+    event.preventDefault();
+    clearSelection();
   }
-  document.querySelectorAll('[data-go]').forEach(button => {
-    button.addEventListener('click', () => goToPage(Number(button.dataset.go)));
-  });
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    const index = pages.findIndex(page => `#${page.id}` === link.getAttribute('href'));
-    if (index < 0) return;
-    link.addEventListener('click', event => {
-      event.preventDefault();
-      goToPage(index);
-    });
-  });
-  backButton.addEventListener('click', () => goToPage(currentPage - 1));
-  nextButton.addEventListener('click', () => goToPage(currentPage === 4 ? 0 : currentPage + 1));
-  window.addEventListener('popstate', () => goToPage(pageFromHash(), { updateHistory: false }));
-  window.addEventListener('hashchange', () => goToPage(pageFromHash(), { updateHistory: false }));
-  document.addEventListener('keydown', event => {
-    if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey || event.target.closest('input, textarea, select, [contenteditable="true"]')) return;
-    if (event.key === 'ArrowRight') { event.preventDefault(); goToPage(Math.min(currentPage + 1, 4)); }
-    if (event.key === 'ArrowLeft') { event.preventDefault(); goToPage(Math.max(currentPage - 1, 0)); }
-  });
+});
 
-  // Horizontal swipes turn pages without scrolling the document.
-  document.querySelector('main').addEventListener('touchstart', event => {
-    if (event.touches.length !== 1 || event.target.closest('button, a')) { touchStart = null; return; }
-    touchStart = { x: event.touches[0].clientX, y: event.touches[0].clientY };
-  }, { passive: true });
-  document.querySelector('main').addEventListener('touchend', event => {
-    if (!touchStart || event.changedTouches.length !== 1) return;
-    const dx = event.changedTouches[0].clientX - touchStart.x;
-    const dy = event.changedTouches[0].clientY - touchStart.y;
-    touchStart = null;
-    if (Math.abs(dx) > 75 && Math.abs(dx) > Math.abs(dy) * 1.8) {
-      goToPage(Math.max(0, Math.min(4, currentPage + (dx < 0 ? 1 : -1))));
-    }
-  }, { passive: true });
-  document.querySelector('main').addEventListener('touchcancel', () => { touchStart = null; }, { passive: true });
+navigation = initNavigation(id => {
+  updateWorkView(id);
+  updateBackdrop();
+});
 
-  const photo = new Image();
-  photo.addEventListener('load', () => {
-    const profile = document.querySelector('#profile-photo');
-    profile.src = photo.src;
-    profile.hidden = false;
-    document.querySelector('.portrait-placeholder').hidden = true;
-  });
-  photo.src = 'assets/profile.jpg?v=083af7be32c0';
-  goToPage(pageFromHash(), { focus: false, updateHistory: false });
-})();
+// Opening photographs take priority; selected layers are then loaded into the same frames.
+const preloadSelected = () => cards.forEach(loadSelectedImage);
+if (document.readyState === 'complete') preloadSelected();
+else window.addEventListener('load', preloadSelected, { once: true });

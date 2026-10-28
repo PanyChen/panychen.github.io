@@ -1,13 +1,12 @@
 # Pengxu (Vincent) Chen PhD
 
-A five-page CV companion with interactive scenes for problem-solving, repeatable workflows and clear communication.
+Research portfolio published with GitHub Pages from the root of `main`.
 
-This repository is ready for GitHub Pages. Publish the default branch from the root folder. The `.nojekyll` file serves the HTML, CSS, JavaScript and assets directly.
+These files are the built output of the `portfolio-site` project. Do not edit them here. To update the website:
 
-## Update the website
-
-- Edit `index.html`, `styles.css` or `app.js`, then commit the changes. GitHub Pages publishes commits to the configured branch automatically.
-- Replace `assets/profile.jpg` to update the portrait. Change the `v` value in the image URL in `app.js` to ensure browsers fetch the replacement.
+1. In `portfolio-site`, edit `data/` or `src/`, then run `npm run build` and `npm test`.
+2. Replace everything in this repository except `.git`, `.nojekyll` and `.gitignore` with the contents of `portfolio-site/dist/`.
+3. Commit and push. GitHub Pages publishes within a few minutes.
 
 ## Local preview
 

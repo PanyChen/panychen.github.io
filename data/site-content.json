@@ -1,0 +1,144 @@
+{
+  "profile": {
+    "name": "Pengxu (Vincent) Chen",
+    "role": "Materials scientist",
+    "portrait": "assets/profile.jpg",
+    "email": "chenpengxu321@gmail.com"
+  },
+  "hero": {
+    "heading": "Material interfaces for a sustainable future.",
+    "definition": "The thin boundary where materials meet."
+  },
+  "goals": [
+    {
+      "id": "energy",
+      "label": "Save energy",
+      "subtitle": "Repel water and control freezing",
+      "before_image": "assets/opening-energy.jpg",
+      "after_image": "assets/selected-energy-leaf.jpg",
+      "projects": [
+        "E1",
+        "E2"
+      ],
+      "title": "Save energy."
+    },
+    {
+      "id": "carbon",
+      "label": "Cut carbon",
+      "subtitle": "Build longer-lasting pavement",
+      "before_image": "assets/opening-carbon.jpg",
+      "after_image": "assets/selected-carbon.jpg",
+      "projects": [
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "title": "Cut carbon."
+    },
+    {
+      "id": "water",
+      "label": "Make clean water",
+      "subtitle": "Control ice for desalination",
+      "before_image": "assets/opening-water.jpg",
+      "after_image": "assets/selected-water.png",
+      "projects": [
+        "W1"
+      ],
+      "title": "Make clean water."
+    }
+  ],
+  "how_i_work": [
+    {
+      "heading": "I solve problems.",
+      "text": "I connect molecular behaviour to mechanisms and measurable material response through simulation, theory and experimental validation.",
+      "question": "Does shaking help water freeze?",
+      "answer": "It depends on how you shake it."
+    },
+    {
+      "heading": "I make work easier.",
+      "text": "I build reusable simulation workflows and analysis tools, and automate large simulation campaigns on national computing systems.",
+      "question": "How do scattered tasks become a repeatable workflow?",
+      "answer": "A clear sequence makes repeated work easier."
+    },
+    {
+      "heading": "I help others understand.",
+      "text": "I explain complex results through scientific visualisation, presentations and mentoring.",
+      "question": "How can a complex idea become easy to understand?",
+      "answer": "Residence time is the average time something stays in a place before leaving."
+    }
+  ],
+  "about": {
+    "text": "My research connects surface design, adhesion and ice nucleation. I combine molecular simulation, laboratory experiments and scientific computing to understand interfaces and address practical environmental questions."
+  },
+  "education": [
+    {
+      "institution": "The University of Edinburgh",
+      "description": "PhD in Engineering (Applied Physics)",
+      "dates": "2022–2026"
+    },
+    {
+      "institution": "Zhejiang University",
+      "description": "MEng in Engineering Materials",
+      "dates": "2019–2022"
+    },
+    {
+      "institution": "China University of Geosciences",
+      "description": "BEng in Civil Engineering",
+      "dates": "2015–2019"
+    }
+  ],
+  "recognition": [
+    {
+      "title": "Research featured by ARCHER2",
+      "detail": "UK National Supercomputing Service case study",
+      "year": 2026
+    },
+    {
+      "title": "Best Early Career Researcher",
+      "detail": "ARCHER2 Image and Video Competition",
+      "year": 2025
+    },
+    {
+      "title": "Best Poster Award",
+      "detail": "School of Engineering University of Edinburgh",
+      "year": 2024
+    },
+    {
+      "title": "Best Paper",
+      "detail": "Transportation Research Congress",
+      "year": 2021
+    },
+    {
+      "title": "President Scholarship",
+      "detail": "Top 3%",
+      "year": 2018
+    },
+    {
+      "title": "Excellent Award",
+      "detail": "Top 15% · The 11th National College Student Mechanics Contest",
+      "year": 2017,
+      "date": "2017"
+    },
+    {
+      "title": "Talent Scholarship",
+      "detail": "Top 0.2%",
+      "year": 2016
+    }
+  ],
+  "skills": [
+    "Molecular dynamics",
+    "Interfacial phenomena",
+    "Multiscale modelling",
+    "Experimental validation",
+    "MATLAB and C++",
+    "HPC and workflow automation",
+    "Scientific visualisation",
+    "Python",
+    "Machine learning"
+  ],
+  "links": {
+    "contact": "mailto:chenpengxu321@gmail.com",
+    "scholar": "https://scholar.google.com/citations?user=uM3Ms-MAAAAJ&hl=en",
+    "linkedin": "https://uk.linkedin.com/in/pengxu-vincent-chen-857082221"
+  }
+}

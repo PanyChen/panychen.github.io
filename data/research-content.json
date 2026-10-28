@@ -1,0 +1,269 @@
+{
+  "owner": "Pengxu (Vincent) Chen",
+  "focus": "Interfaces",
+  "headline": "Material interfaces for a sustainable future.",
+  "definition": "The thin boundary where materials meet.",
+  "mission": "I study where materials meet, to help save energy, cut carbon and make clean water.",
+  "goals": [
+    {
+      "id": "energy",
+      "label": "Save energy",
+      "subtitle": "Repel water and control freezing",
+      "interface": "Surface / water / ice",
+      "projects": [
+        "E1",
+        "E2"
+      ],
+      "before_image": "assets/opening-energy.jpg",
+      "after_image": "assets/selected-energy-leaf.jpg"
+    },
+    {
+      "id": "carbon",
+      "label": "Cut carbon",
+      "subtitle": "Build longer-lasting pavement",
+      "interface": "Bitumen / mineral",
+      "projects": [
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "before_image": "assets/opening-carbon.jpg",
+      "after_image": "assets/selected-carbon.jpg"
+    },
+    {
+      "id": "water",
+      "label": "Make clean water",
+      "subtitle": "Control ice for desalination",
+      "interface": "Ice / saline water and solid / water",
+      "projects": [
+        "W1"
+      ],
+      "before_image": "assets/opening-water.jpg",
+      "after_image": "assets/selected-water.png"
+    }
+  ],
+  "projects": [
+    {
+      "id": "E1",
+      "goal": "energy",
+      "title": "Passive anti icing through surface design",
+      "display_title": "Surfaces that repel water",
+      "summary": "I contributed to laboratory research on superhydrophobic pavement coatings, studying water repellency, icing and mechanical performance.",
+      "finding": "The coating delayed droplet icing and reduced ice adhesion under the reported test conditions.",
+      "purpose": "Reduce reliance on energy intensive ice removal through passive surface design.",
+      "methods": [
+        "Laboratory experiments",
+        "Surface characterisation",
+        "Wetting and adhesion"
+      ],
+      "papers": [
+        "P1"
+      ],
+      "role": "Coauthor and laboratory contributor",
+      "related_projects": []
+    },
+    {
+      "id": "E2",
+      "goal": "energy",
+      "title": "Vibration controlled ice nucleation",
+      "display_title": "Control when freezing begins",
+      "summary": "I used molecular dynamics to investigate how surface vibrations promote or suppress ice nucleation in different water environments.",
+      "finding": "Confined water and interfacial nanofilms respond differently; vibration can favour nucleation or suppress it depending on geometry and conditions.",
+      "purpose": "Develop molecular guidance for efficient freezing and anti icing strategies.",
+      "methods": [
+        "Molecular dynamics",
+        "Non equilibrium analysis",
+        "HPC and scientific programming"
+      ],
+      "papers": [
+        "P2",
+        "P3"
+      ],
+      "role": "First author",
+      "related_projects": [
+        "W1"
+      ]
+    },
+    {
+      "id": "C1",
+      "goal": "carbon",
+      "title": "Chemical treatment of pavement interfaces",
+      "display_title": "Improve adhesion through chemistry",
+      "summary": "I contributed to experimental studies of silane coupling agents and lignin based polyurethane modifiers for asphalt adhesion.",
+      "finding": "These studies investigated improved adhesion and resistance to moisture or UV ageing using different chemical treatments.",
+      "purpose": "Support durable pavement materials with less maintenance and reconstruction.",
+      "methods": [
+        "Chemical modification",
+        "Pull off testing",
+        "Surface energy and characterisation"
+      ],
+      "papers": [
+        "P4",
+        "P5"
+      ],
+      "role": "Coauthor and experimental contributor",
+      "related_projects": [
+        "C2",
+        "C3"
+      ]
+    },
+    {
+      "id": "C2",
+      "goal": "carbon",
+      "title": "Molecular analysis of adhesive and cohesive failure",
+      "display_title": "Understand where materials fail",
+      "summary": "I modelled failure within bitumen and along bitumen mineral interfaces to connect molecular behaviour with observed debonding patterns.",
+      "finding": "The balance of adhesive and cohesive failure depends on material and loading conditions.",
+      "purpose": "Explain failure mechanisms that matter for pavement durability.",
+      "methods": [
+        "Molecular dynamics",
+        "Adhesion and fracture",
+        "Failure analysis"
+      ],
+      "papers": [
+        "P6"
+      ],
+      "role": "First author",
+      "related_projects": [
+        "C1",
+        "C3"
+      ]
+    },
+    {
+      "id": "C3",
+      "goal": "carbon",
+      "title": "Multiscale prediction of pull off strength",
+      "display_title": "Connect molecules to material design",
+      "summary": "I linked molecular debonding behaviour to pull off experiments and strength prediction through multiscale modelling.",
+      "finding": "Simulation and experiment informed a modified strength model for bitumen aggregate interfaces.",
+      "purpose": "Provide engineering guidance for the design of more durable pavement materials.",
+      "methods": [
+        "Coarse grained molecular dynamics",
+        "Pull off experiments",
+        "Fracture mechanics and upscaling"
+      ],
+      "papers": [
+        "P7"
+      ],
+      "role": "First author",
+      "related_projects": [
+        "C1",
+        "C2"
+      ]
+    },
+    {
+      "id": "W1",
+      "goal": "water",
+      "title": "Molecular mechanisms for freeze desalination",
+      "display_title": "Separate fresh water by freezing",
+      "summary": "I extended vibration controlled freezing research to saline water, studying the molecular processes relevant to freeze desalination.",
+      "finding": "The work connects interfacial ice nucleation and saltwater behaviour to questions of practical ice formation and separation.",
+      "purpose": "Contribute to more energy efficient routes to clean water.",
+      "methods": [
+        "Saline water molecular dynamics",
+        "Ice nucleation",
+        "HPC analysis"
+      ],
+      "papers": [
+        "R8"
+      ],
+      "role": "Researcher and named ARCHER2 case study author",
+      "related_projects": [
+        "E2"
+      ]
+    }
+  ],
+  "publications": [
+    {
+      "id": "P1",
+      "title": "The anti-icing and mechanical properties of a superhydrophobic coating on asphalt pavement",
+      "year": 2018,
+      "journal": "Construction and Building Materials",
+      "volume": "190",
+      "pages": "83-94",
+      "doi": "10.1016/j.conbuildmat.2018.09.128",
+      "url": "https://doi.org/10.1016/j.conbuildmat.2018.09.128",
+      "authors": "Peng C, Chen P, You Z, Lv S, Xu F, Zhang W, Yu J and Zhang H"
+    },
+    {
+      "id": "P2",
+      "title": "Nanoscale insights into vibration-induced heterogeneous ice nucleation",
+      "year": 2025,
+      "journal": "Nanoscale",
+      "volume": "17",
+      "pages": "14172-14182",
+      "doi": "10.1039/D5NR00326A",
+      "url": "https://doi.org/10.1039/D5NR00326A",
+      "authors": "Chen P, Pillai R and Datta S"
+    },
+    {
+      "id": "P3",
+      "title": "Freezing under motion: How surface vibrations suppress ice nucleation in water nanofilms",
+      "year": 2026,
+      "journal": "The Journal of Chemical Physics",
+      "volume": "165",
+      "pages": "024703",
+      "doi": "10.1063/5.0335640",
+      "url": "https://doi.org/10.1063/5.0335640",
+      "authors": "Chen P, Sullivan P, Pillai R and Datta S"
+    },
+    {
+      "id": "P4",
+      "title": "Effect of silane coupling agent on improving the adhesive properties between asphalt binder and aggregates",
+      "year": 2018,
+      "journal": "Construction and Building Materials",
+      "volume": "169",
+      "pages": "591-600",
+      "doi": "10.1016/j.conbuildmat.2018.02.186",
+      "url": "https://doi.org/10.1016/j.conbuildmat.2018.02.186",
+      "authors": "Peng C, Chen P, You Z, Lv S, Zhang R, Xu F, Zhang H and Chen H"
+    },
+    {
+      "id": "P5",
+      "title": "Effect of a lignin-based polyurethane on adhesion properties of asphalt binder during UV aging process",
+      "year": 2020,
+      "journal": "Construction and Building Materials",
+      "volume": "247",
+      "pages": "118547",
+      "doi": "10.1016/j.conbuildmat.2020.118547",
+      "url": "https://doi.org/10.1016/j.conbuildmat.2020.118547",
+      "authors": "Peng C, Huang S, You Z, Xu F, You L, Ouyang H, Li T, Guo C, Ma H, Chen P and Dai J"
+    },
+    {
+      "id": "P6",
+      "title": "Modeling percentages of cohesive and adhesive debonding in bitumen-aggregate interfaces using molecular dynamics approaches",
+      "year": 2022,
+      "journal": "Applied Surface Science",
+      "volume": "571",
+      "pages": "151318",
+      "doi": "10.1016/j.apsusc.2021.151318",
+      "url": "https://doi.org/10.1016/j.apsusc.2021.151318",
+      "authors": "Chen P, Luo X, Gao Y and Zhang Y"
+    },
+    {
+      "id": "P7",
+      "title": "Multiscale modelling of bitumen-aggregate interfaces from molecular debonding to pull-off strength",
+      "year": 2023,
+      "journal": "International Journal of Adhesion and Adhesives",
+      "volume": "124",
+      "pages": "103393",
+      "doi": "10.1016/j.ijadhadh.2023.103393",
+      "url": "https://doi.org/10.1016/j.ijadhadh.2023.103393",
+      "authors": "Chen P, Wang J, Luo X, Wang L and Zhang Y"
+    },
+    {
+      "id": "R8",
+      "title": "Engineering clean water by freezing Using vibrations for desalination",
+      "year": 2026,
+      "journal": "ARCHER2 research case study",
+      "url": "https://www.archer2.ac.uk/research/case-studies/freeze-desalination/Archer2_Freeze_Desalination_AW_LOW.pdf",
+      "authors": "Chen P, Romero Vargas Castrillon S, Pillai R and Datta S",
+      "type": "Case study"
+    }
+  ],
+  "claims_guidance": {
+    "energy": "Present energy reduction as the research aim. Do not claim net energy savings relative to electrothermal heating without a system energy comparison.",
+    "carbon": "Present reduced maintenance and associated carbon emissions as the intended durability benefit. Do not imply a quantified carbon saving or completed lifecycle assessment.",
+    "water": "Present freeze desalination as a route being investigated toward energy efficient clean water. Do not imply a deployed desalination plant or proven superiority across operating conditions."
+  }
+}

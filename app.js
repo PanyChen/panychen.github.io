@@ -1,5 +1,5 @@
 import { initialState, selectGoal, selectProject } from './state.js';
-import { escapeHTML as e, publicationHTML } from './content.js';
+import { escapeHTML as e } from './content.js';
 import { initNavigation } from './navigation.js';
 import { initWorkInteractions } from './work-interactions.js';
 
@@ -10,6 +10,8 @@ const publications = new Map(research.publications.map(publication => [publicati
 const region = document.querySelector('#research');
 const story = document.querySelector('#story');
 const storyNav = document.querySelector('#story-nav');
+const mobileLayout = matchMedia('(max-width: 649px)');
+const regionHome = { parent: region.parentElement, next: region.nextElementSibling };
 const status = document.querySelector('#selection-status');
 const imageError = document.querySelector('#image-error');
 const cards = [...document.querySelectorAll('.goal-card')];
@@ -27,9 +29,9 @@ function updateBackdrop() {
 }
 
 const introductions = {
-  energy: 'Ice forms and grips at surfaces. I first led a student team developing a water-repellent coating that makes it harder for ice to stick to roads, then used simulations to ask how shaking a surface changes when freezing begins.',
-  carbon: 'Roads crack when bitumen loses its grip on stone, especially once water gets in. I studied that boundary from three sides: the chemistry that improves adhesion, how it fails at the molecular scale, and how both add up to the strength measured in the lab.',
-  water: 'When seawater freezes, the ice leaves most of the salt behind, a possible lower-energy route to fresh water that is still being investigated. The open question is how to control when ice forms. I study it with simulations in saltwater and at soft interfaces, and I am training machine-learned models to make those simulations more reliable.',
+  energy: 'Clearing ice from roads takes a lot of energy, so I ask a simple question: can a surface keep ice from sticking, or even stop it forming? I first led a student team developing a water-repellent coating for roads, then used computer simulations to study how shaking a surface changes when water starts to freeze.',
+  carbon: 'Every time a road is rebuilt, more carbon is emitted. Roads often fail because the black binder, bitumen, loses its grip on the stones, especially once water gets in. I studied that boundary from three sides: chemistry that improves the grip, how it breaks at the molecular scale, and how both add up to the strength measured in the lab.',
+  water: 'When seawater freezes, the ice leaves most of the salt behind, so freezing could become a lower-energy way to make fresh water. This is still being investigated, and the hard part is controlling when ice forms. I study it with simulations on national supercomputers, and I am training machine-learned models to make those simulations more reliable.',
 };
 
 function describeCard(goal) {
@@ -69,16 +71,24 @@ function renderStory() {
     button.setAttribute('aria-pressed', String(button.dataset.project === project.id));
   }
   story.dataset.project = project.id;
-  const paperList = project.papers.map(id => `<li data-publication="${e(id)}">${publicationHTML(publications.get(id))}</li>`).join('');
-  const cases = project.id === 'E2' ? `<div class="detail-block"><h4 class="detail-label">Two studied cases</h4><p><strong>Promote freezing:</strong> vibration-induced ice nucleation in confined water (<a href="${e(publications.get('P2').url)}">Nanoscale, 2025</a>).</p><p><strong>Suppress freezing:</strong> surface vibrations suppress ice nucleation in water nanofilms (<a href="${e(publications.get('P3').url)}">The Journal of Chemical Physics, 2026</a>). The geometry and conditions differ between these cases.</p></div>` : '';
-  const related = project.related_projects.length ? `<div class="related">Related research: ${project.related_projects.map(id => `<button type="button" data-related="${e(id)}">${e(projects.get(id).display_title)}</button>`).join(' · ')}</div>` : '';
-  story.innerHTML = `<div><h3 id="story-title" class="story-title">${e(project.display_title)}</h3><p class="story-summary">${e(project.summary)}</p><p class="authorship">${e(project.role)}</p></div>
-    <div><div class="detail-block"><h4 class="detail-label">Research finding</h4><p>${e(project.finding)}</p></div>${cases}<div class="detail-block"><h4 class="detail-label">Why it matters</h4><p>${e(project.purpose)}</p></div><div class="detail-block"><h4 class="detail-label">Methods</h4><p>${project.methods.map(e).join(' · ')}</p></div></div>
-    ${paperList ? `<div class="story-papers"><h4>${project.id === 'W1' ? 'Research case study' : project.papers.length === 1 ? 'Related paper' : 'Related papers'}</h4><ul class="publication-list">${paperList}</ul></div>` : ''}${related}`;
+  const paperList = project.papers.map(id => { const p = publications.get(id); return `<li data-publication="${e(id)}"><a href="${e(p.url)}">${e(p.title)}</a><span class="paper-meta">${e(p.journal)} · ${e(p.year)}</span></li>`; }).join('');
+  const related = project.related_projects.length ? `<p class="related">Related: ${project.related_projects.map(id => `<button type="button" data-related="${e(id)}">${e(projects.get(id).display_title)}</button>`).join(' · ')}</p>` : '';
+  story.innerHTML = `<h3 id="story-title" class="sr-only">${e(project.display_title)}</h3><p class="story-summary">${e(project.summary)}</p><p class="authorship">${e(project.role)}</p>
+    <dl class="story-facts"><div><dt>What I found</dt><dd>${e(project.finding)}</dd></div><div><dt>Why it matters</dt><dd>${e(project.purpose)}</dd></div><div><dt>Methods</dt><dd>${project.methods.map(e).join(' · ')}</dd></div></dl>
+    ${paperList ? `<div class="story-papers"><h4>${project.id === 'W1' ? 'Research case study' : project.papers.length === 1 ? 'Paper' : 'Papers'}</h4><ul class="paper-list">${paperList}</ul></div>` : ''}${related}`;
 }
+
+// On phones the research opens directly under the selected card; elsewhere it follows all three cards
+function placeRegion() {
+  const card = state.activeGoal && mobileLayout.matches ? document.querySelector(`#goal-${state.activeGoal}`) : null;
+  if (card) { if (card.nextElementSibling !== region) card.after(region); }
+  else if (region.parentElement !== regionHome.parent) regionHome.parent.insertBefore(region, regionHome.next);
+}
+mobileLayout.addEventListener('change', placeRegion);
 
 function renderGoal() {
   updateBackdrop();
+  placeRegion();
   const goal = site.goals.find(item => item.id === state.activeGoal);
   for (const card of cards) {
     card.setAttribute('aria-pressed', String(card.dataset.goal === state.activeGoal));
@@ -97,7 +107,7 @@ function renderGoal() {
   document.querySelector('#goal-intro').textContent = introductions[goal.id];
   storyNav.innerHTML = goal.projects.map(id => `<button type="button" class="story-choice" data-project="${e(id)}" aria-controls="story" aria-pressed="false">${e(projects.get(id).display_title)}</button>`).join('');
   renderStory();
-  status.textContent = `${goal.label} selected. ${goal.projects.length} research ${goal.projects.length === 1 ? 'story' : 'stories'} available below the photographs.`;
+  status.textContent = `${goal.label} selected. ${goal.projects.length} research ${goal.projects.length === 1 ? 'story' : 'stories'} available below.`;
 }
 
 function clearSelection() {

@@ -1,14 +1,14 @@
 {
   "owner": "Pengxu (Vincent) Chen",
   "focus": "Interfaces",
-  "headline": "I study what happens where two materials meet.",
-  "definition": "Ice on road surfaces, bitumen on stone, salt in freezing water. I model these interfaces molecule by molecule and test the models against experiments.",
-  "mission": "I study what happens where two materials meet: ice on surfaces, bitumen on stone and salt in freezing water.",
+  "headline": "I study what happens where two materials meet to…",
+  "definition": "Choose a goal to see the research behind it.",
+  "mission": "I study what happens where two materials meet, to help save energy, cut carbon and make clean water.",
   "goals": [
     {
       "id": "energy",
-      "label": "Ice on surfaces",
-      "subtitle": "BEng to PhD · coatings and surface vibration",
+      "label": "Save energy",
+      "subtitle": "Repel water and control freezing",
       "interface": "Surface / water / ice",
       "projects": [
         "E1",
@@ -19,8 +19,8 @@
     },
     {
       "id": "carbon",
-      "label": "Asphalt on stone",
-      "subtitle": "BEng to MEng · lab tests and simulation",
+      "label": "Cut carbon",
+      "subtitle": "Build longer-lasting pavement",
       "interface": "Bitumen / mineral",
       "projects": [
         "C1",
@@ -32,12 +32,11 @@
     },
     {
       "id": "water",
-      "label": "Fresh water from ice",
-      "subtitle": "PhD to now · supercomputing and machine learning",
+      "label": "Make clean water",
+      "subtitle": "Control ice for desalination",
       "interface": "Ice / saline water and solid / water",
       "projects": [
         "W1",
-        "W2",
         "W3"
       ],
       "before_image": "assets/opening-water.jpg",
@@ -176,26 +175,6 @@
       ]
     },
     {
-      "id": "W2",
-      "goal": "water",
-      "title": "Ice nucleation at lipid bilayers",
-      "display_title": "Freezing at soft interfaces",
-      "summary": "In an international collaboration with the University of Basel, I built a reproducible all-atom workflow to study how ice forms where water meets a lipid bilayer, using a software platform and a class of materials that were new to me.",
-      "finding": "I delivered a reproducible all-atom lipid–water simulation workflow within the collaboration.",
-      "purpose": "Extend ice-nucleation understanding from hard surfaces to soft, biological interfaces.",
-      "methods": [
-        "All-atom molecular dynamics",
-        "GROMACS",
-        "Moltemplate"
-      ],
-      "papers": [],
-      "role": "Research collaborator, University of Basel (remote), 2026",
-      "related_projects": [
-        "W1",
-        "W3"
-      ]
-    },
-    {
       "id": "W3",
       "goal": "water",
       "title": "Machine-learned force fields for water",
@@ -212,8 +191,7 @@
       "papers": [],
       "role": "Independent project, 2026",
       "related_projects": [
-        "W1",
-        "W2"
+        "W1"
       ]
     }
   ],

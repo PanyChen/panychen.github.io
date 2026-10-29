@@ -6,26 +6,26 @@
     "email": "chenpengxu321@gmail.com"
   },
   "hero": {
-    "heading": "I study what happens where two materials meet.",
-    "definition": "Ice on road surfaces, bitumen on stone, salt in freezing water. I model these interfaces molecule by molecule and test the models against experiments."
+    "heading": "I study what happens where two materials meet to…",
+    "definition": "Choose a goal to see the research behind it."
   },
   "goals": [
     {
       "id": "energy",
-      "label": "Ice on surfaces",
-      "subtitle": "BEng to PhD · coatings and surface vibration",
+      "label": "Save energy",
+      "subtitle": "Repel water and control freezing",
       "before_image": "assets/opening-energy.jpg",
       "after_image": "assets/selected-energy-leaf.jpg",
       "projects": [
         "E1",
         "E2"
       ],
-      "title": "Can a surface keep ice from sticking?"
+      "title": "Save energy."
     },
     {
       "id": "carbon",
-      "label": "Asphalt on stone",
-      "subtitle": "BEng to MEng · lab tests and simulation",
+      "label": "Cut carbon",
+      "subtitle": "Build longer-lasting pavement",
       "before_image": "assets/opening-carbon.jpg",
       "after_image": "assets/selected-carbon.jpg",
       "projects": [
@@ -33,20 +33,19 @@
         "C2",
         "C3"
       ],
-      "title": "Why does asphalt peel away from stone?"
+      "title": "Cut carbon."
     },
     {
       "id": "water",
-      "label": "Fresh water from ice",
-      "subtitle": "PhD to now · supercomputing and machine learning",
+      "label": "Make clean water",
+      "subtitle": "Control ice for desalination",
       "before_image": "assets/opening-water.jpg",
       "after_image": "assets/selected-water.png",
       "projects": [
         "W1",
-        "W2",
         "W3"
       ],
-      "title": "Can controlled freezing make fresh water?"
+      "title": "Make clean water."
     }
   ],
   "how_i_work": [
@@ -70,7 +69,7 @@
     }
   ],
   "about": {
-    "text": "My research connects surface design, adhesion and ice nucleation. I combine molecular simulation, laboratory experiments and scientific computing to understand interfaces and address practical environmental questions. So far: 8 peer-reviewed papers (4 first-author), 400 citations and about 800,000 compute units on UK national supercomputers."
+    "text": "My research connects surface design, adhesion and ice nucleation. I combine molecular simulation, laboratory experiments and scientific computing to understand interfaces and address practical environmental questions. So far: 8 peer-reviewed papers (4 first-author), 400+ citations and about 800,000 compute units on UK national supercomputers."
   },
   "education": [
     {

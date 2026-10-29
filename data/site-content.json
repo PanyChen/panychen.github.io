@@ -1,31 +1,31 @@
 {
   "profile": {
     "name": "Pengxu (Vincent) Chen",
-    "role": "Materials scientist",
+    "role": "Computational materials scientist",
     "portrait": "assets/profile.jpg",
     "email": "chenpengxu321@gmail.com"
   },
   "hero": {
-    "heading": "Material interfaces for a sustainable future.",
-    "definition": "The thin boundary where materials meet."
+    "heading": "I study what happens where two materials meet.",
+    "definition": "Ice on road surfaces, bitumen on stone, salt in freezing water. I model these interfaces molecule by molecule and test the models against experiments."
   },
   "goals": [
     {
       "id": "energy",
-      "label": "Save energy",
-      "subtitle": "Repel water and control freezing",
+      "label": "Ice on surfaces",
+      "subtitle": "BEng to PhD · coatings and surface vibration",
       "before_image": "assets/opening-energy.jpg",
       "after_image": "assets/selected-energy-leaf.jpg",
       "projects": [
         "E1",
         "E2"
       ],
-      "title": "Save energy."
+      "title": "Can a surface keep ice from sticking?"
     },
     {
       "id": "carbon",
-      "label": "Cut carbon",
-      "subtitle": "Build longer-lasting pavement",
+      "label": "Asphalt on stone",
+      "subtitle": "BEng to MEng · lab tests and simulation",
       "before_image": "assets/opening-carbon.jpg",
       "after_image": "assets/selected-carbon.jpg",
       "projects": [
@@ -33,42 +33,44 @@
         "C2",
         "C3"
       ],
-      "title": "Cut carbon."
+      "title": "Why does asphalt peel away from stone?"
     },
     {
       "id": "water",
-      "label": "Make clean water",
-      "subtitle": "Control ice for desalination",
+      "label": "Fresh water from ice",
+      "subtitle": "PhD to now · supercomputing and machine learning",
       "before_image": "assets/opening-water.jpg",
       "after_image": "assets/selected-water.png",
       "projects": [
-        "W1"
+        "W1",
+        "W2",
+        "W3"
       ],
-      "title": "Make clean water."
+      "title": "Can controlled freezing make fresh water?"
     }
   ],
   "how_i_work": [
     {
       "heading": "I solve problems.",
-      "text": "I connect molecular behaviour to mechanisms and measurable material response through simulation, theory and experimental validation.",
+      "text": "I connect molecular behaviour to mechanisms and measurable material response through simulation, theory and experimental validation. I also scoped and led a modelling subtask in a national highway-safety R&D programme, setting its computing needs, budget and schedule.",
       "question": "Does shaking help water freeze?",
       "answer": "It depends on how you shake it."
     },
     {
       "heading": "I make work easier.",
-      "text": "I build reusable simulation workflows and analysis tools, and automate large simulation campaigns on national computing systems.",
+      "text": "I build reusable simulation workflows and analysis tools, and automate large simulation campaigns on national computing systems, which cut submission time by about 80%. I also designed a shared research database used by about 15 researchers and managed its external developer.",
       "question": "How do scattered tasks become a repeatable workflow?",
       "answer": "A clear sequence makes repeated work easier."
     },
     {
       "heading": "I help others understand.",
-      "text": "I explain complex results through scientific visualisation, presentations and mentoring.",
+      "text": "I explain complex results through scientific visualisation, presentations and mentoring. I have mentored MEng and BEng thesis students and tutored four undergraduate engineering courses.",
       "question": "How can a complex idea become easy to understand?",
       "answer": "Residence time is the average time something stays in a place before leaving."
     }
   ],
   "about": {
-    "text": "My research connects surface design, adhesion and ice nucleation. I combine molecular simulation, laboratory experiments and scientific computing to understand interfaces and address practical environmental questions."
+    "text": "My research connects surface design, adhesion and ice nucleation. I combine molecular simulation, laboratory experiments and scientific computing to understand interfaces and address practical environmental questions. So far: 8 peer-reviewed papers (4 first-author), 400 citations and about 800,000 compute units on UK national supercomputers."
   },
   "education": [
     {
@@ -134,7 +136,8 @@
     "HPC and workflow automation",
     "Scientific visualisation",
     "Python",
-    "Machine learning"
+    "Machine learning",
+    "MACE force fields"
   ],
   "links": {
     "contact": "mailto:chenpengxu321@gmail.com",

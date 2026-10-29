@@ -1,14 +1,14 @@
 {
   "owner": "Pengxu (Vincent) Chen",
   "focus": "Interfaces",
-  "headline": "Material interfaces for a sustainable future.",
-  "definition": "The thin boundary where materials meet.",
-  "mission": "I study where materials meet, to help save energy, cut carbon and make clean water.",
+  "headline": "I study what happens where two materials meet.",
+  "definition": "Ice on road surfaces, bitumen on stone, salt in freezing water. I model these interfaces molecule by molecule and test the models against experiments.",
+  "mission": "I study what happens where two materials meet: ice on surfaces, bitumen on stone and salt in freezing water.",
   "goals": [
     {
       "id": "energy",
-      "label": "Save energy",
-      "subtitle": "Repel water and control freezing",
+      "label": "Ice on surfaces",
+      "subtitle": "BEng to PhD · coatings and surface vibration",
       "interface": "Surface / water / ice",
       "projects": [
         "E1",
@@ -19,8 +19,8 @@
     },
     {
       "id": "carbon",
-      "label": "Cut carbon",
-      "subtitle": "Build longer-lasting pavement",
+      "label": "Asphalt on stone",
+      "subtitle": "BEng to MEng · lab tests and simulation",
       "interface": "Bitumen / mineral",
       "projects": [
         "C1",
@@ -32,11 +32,13 @@
     },
     {
       "id": "water",
-      "label": "Make clean water",
-      "subtitle": "Control ice for desalination",
+      "label": "Fresh water from ice",
+      "subtitle": "PhD to now · supercomputing and machine learning",
       "interface": "Ice / saline water and solid / water",
       "projects": [
-        "W1"
+        "W1",
+        "W2",
+        "W3"
       ],
       "before_image": "assets/opening-water.jpg",
       "after_image": "assets/selected-water.png"
@@ -48,7 +50,7 @@
       "goal": "energy",
       "title": "Passive anti icing through surface design",
       "display_title": "Surfaces that repel water",
-      "summary": "I contributed to laboratory research on superhydrophobic pavement coatings, studying water repellency, icing and mechanical performance.",
+      "summary": "I led a three-student team in laboratory research on superhydrophobic pavement coatings, studying water repellency, icing and mechanical performance.",
       "finding": "The coating delayed droplet icing and reduced ice adhesion under the reported test conditions.",
       "purpose": "Reduce reliance on energy intensive ice removal through passive surface design.",
       "methods": [
@@ -59,7 +61,7 @@
       "papers": [
         "P1"
       ],
-      "role": "Coauthor and laboratory contributor",
+      "role": "Team lead (three students) and coauthor",
       "related_projects": []
     },
     {
@@ -169,7 +171,49 @@
       ],
       "role": "Researcher and named ARCHER2 case study author",
       "related_projects": [
-        "E2"
+        "E2",
+        "W3"
+      ]
+    },
+    {
+      "id": "W2",
+      "goal": "water",
+      "title": "Ice nucleation at lipid bilayers",
+      "display_title": "Freezing at soft interfaces",
+      "summary": "In an international collaboration with the University of Basel, I built a reproducible all-atom workflow to study how ice forms where water meets a lipid bilayer, using a software platform and a class of materials that were new to me.",
+      "finding": "I delivered a reproducible all-atom lipid–water simulation workflow within the collaboration.",
+      "purpose": "Extend ice-nucleation understanding from hard surfaces to soft, biological interfaces.",
+      "methods": [
+        "All-atom molecular dynamics",
+        "GROMACS",
+        "Moltemplate"
+      ],
+      "papers": [],
+      "role": "Research collaborator, University of Basel (remote), 2026",
+      "related_projects": [
+        "W1",
+        "W3"
+      ]
+    },
+    {
+      "id": "W3",
+      "goal": "water",
+      "title": "Machine-learned force fields for water",
+      "display_title": "Sharper models for water and ice",
+      "summary": "Simple water models such as mW miss hydrogen-bond dynamics, which matter most at interfaces. I built a Python workflow to prepare and quality-check atomistic water data, then trained MACE neural-network potentials and compared them with simple baselines.",
+      "finding": "I set up a reproducible pipeline from raw atomistic data to trained and validated machine-learned water potentials.",
+      "purpose": "Make simulations of ice and saltwater more trustworthy for clean-water applications.",
+      "methods": [
+        "MACE",
+        "PyTorch",
+        "ASE",
+        "Python data pipelines"
+      ],
+      "papers": [],
+      "role": "Independent project, 2026",
+      "related_projects": [
+        "W1",
+        "W2"
       ]
     }
   ],

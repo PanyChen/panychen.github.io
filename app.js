@@ -27,9 +27,9 @@ function updateBackdrop() {
 }
 
 const introductions = {
-  energy: 'From water-repellent surfaces to vibration-controlled freezing, I investigate how interfaces can guide passive anti-icing and the control of ice formation.',
-  carbon: 'Longer-lasting pavement is the shared purpose: improve the chemistry, understand the failure mechanism, then connect molecular behaviour to engineering prediction.',
-  water: 'I investigate the molecular processes behind ice formation in saline water, toward more energy efficient routes to clean water.',
+  energy: 'Ice forms and grips at surfaces. I first led a student team developing a water-repellent coating that makes it harder for ice to stick to roads, then used simulations to ask how shaking a surface changes when freezing begins.',
+  carbon: 'Roads crack when bitumen loses its grip on stone, especially once water gets in. I studied that boundary from three sides: the chemistry that improves adhesion, how it fails at the molecular scale, and how both add up to the strength measured in the lab.',
+  water: 'When seawater freezes, the ice leaves most of the salt behind, a possible lower-energy route to fresh water that is still being investigated. The open question is how to control when ice forms. I study it with simulations in saltwater and at soft interfaces, and I am training machine-learned models to make those simulations more reliable.',
 };
 
 function describeCard(goal) {
@@ -73,8 +73,8 @@ function renderStory() {
   const cases = project.id === 'E2' ? `<div class="detail-block"><h4 class="detail-label">Two studied cases</h4><p><strong>Promote freezing:</strong> vibration-induced ice nucleation in confined water (<a href="${e(publications.get('P2').url)}">Nanoscale, 2025</a>).</p><p><strong>Suppress freezing:</strong> surface vibrations suppress ice nucleation in water nanofilms (<a href="${e(publications.get('P3').url)}">The Journal of Chemical Physics, 2026</a>). The geometry and conditions differ between these cases.</p></div>` : '';
   const related = project.related_projects.length ? `<div class="related">Related research: ${project.related_projects.map(id => `<button type="button" data-related="${e(id)}">${e(projects.get(id).display_title)}</button>`).join(' · ')}</div>` : '';
   story.innerHTML = `<div><h3 id="story-title" class="story-title">${e(project.display_title)}</h3><p class="story-summary">${e(project.summary)}</p><p class="authorship">${e(project.role)}</p></div>
-    <div><div class="detail-block"><h4 class="detail-label">Research finding</h4><p>${e(project.finding)}</p></div>${cases}<div class="detail-block"><h4 class="detail-label">Environmental purpose</h4><p>${e(project.purpose)}</p></div><div class="detail-block"><h4 class="detail-label">Methods</h4><p>${project.methods.map(e).join(' · ')}</p></div></div>
-    <div class="story-papers"><h4>${project.id === 'W1' ? 'Research case study' : project.papers.length === 1 ? 'Related paper' : 'Related papers'}</h4><ul class="publication-list">${paperList}</ul></div>${related}`;
+    <div><div class="detail-block"><h4 class="detail-label">Research finding</h4><p>${e(project.finding)}</p></div>${cases}<div class="detail-block"><h4 class="detail-label">Why it matters</h4><p>${e(project.purpose)}</p></div><div class="detail-block"><h4 class="detail-label">Methods</h4><p>${project.methods.map(e).join(' · ')}</p></div></div>
+    ${paperList ? `<div class="story-papers"><h4>${project.id === 'W1' ? 'Research case study' : project.papers.length === 1 ? 'Related paper' : 'Related papers'}</h4><ul class="publication-list">${paperList}</ul></div>` : ''}${related}`;
 }
 
 function renderGoal() {

@@ -60,7 +60,7 @@
       "papers": [
         "P1"
       ],
-      "role": "Team lead (three students) and coauthor",
+      "role": "Team lead (three students)",
       "related_projects": []
     },
     {
@@ -90,7 +90,7 @@
       "goal": "carbon",
       "title": "Chemical treatment of pavement interfaces",
       "display_title": "Improve adhesion through chemistry",
-      "summary": "I contributed to experimental studies of silane coupling agents and lignin based polyurethane modifiers for asphalt adhesion.",
+      "summary": "I conducted experimental studies of silane coupling agents and lignin based polyurethane modifiers for asphalt adhesion.",
       "finding": "These studies investigated improved adhesion and resistance to moisture or UV ageing using different chemical treatments.",
       "purpose": "Support durable pavement materials with less maintenance and reconstruction.",
       "methods": [
@@ -102,7 +102,7 @@
         "P4",
         "P5"
       ],
-      "role": "Coauthor and experimental contributor",
+      "role": "Lead experimentalist",
       "related_projects": [
         "C2",
         "C3"

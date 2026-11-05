@@ -8,6 +8,8 @@ These files are the built output of the `portfolio-site` project. Do not edit th
 2. Replace everything in this repository except `.git`, `.nojekyll` and `.gitignore` with the contents of `portfolio-site/dist/`.
 3. Commit and push. GitHub Pages publishes within a few minutes.
 
+All page text is built into `index.html`; the content files in `portfolio-site/data/` are not published here.
+
 ## Local preview
 
 Run `python3 -m http.server 4173 --bind 127.0.0.1` in this folder and open `http://127.0.0.1:4173`.
